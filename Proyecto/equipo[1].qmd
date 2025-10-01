@@ -1,0 +1,215 @@
+---
+title: "- Pagaré Bancario -  Equipo 1"
+subtitle: "Universidad Michoacana de San Nicolás de Hidalgo  
+Licenciatura en Actuaría y Ciencia de Datos"
+author: "Diego Alberto Montes Ramírez 2341957j@umich.mx
+<br>Moises Vitela Silva ⁠2408827j@umich.mx<br>
+Valeria Beltrán Gonzalez ⁠2408835h@umich.m x<br>Diego Pérez Quintero ⁠2431510c@umich.mx<br>
+Estefania Zarco Garcia ⁠2408838b@umich.mx"
+format: 
+  revealjs:
+    theme: default
+    css: styles.css
+    transition: convex 
+    background-transition: fade
+    transition-speed: slow
+editor: visual
+---
+::: {.scrollable style="height:725px; overflow-y: scroll;"}
+
+
+## <span style="color:red;">ÍNDICE</span> {background-image="fondish.jpg" background-size="cover" background-opacity="1.0"}
+::: incremental
+
+### <span style="font-size:0.7em" class="fragment">-Orígenes del pagaré</span>
+
+### <span style="font-size:0.7em" class="fragment">- ¿Qué es un pagaré? Según (LGTOC) </span>
+#### <span style="font-size:0.6em" class="fragment">- Elementos que lo conforman</span>
+#### <span style="font-size:0.6em" class="fragment">- Partes de un pagaré</span>
+
+### <span style="font-size:0.7em" class="fragment">- Características</span>
+
+### <span style="font-size:0.7em" class="fragment">- ¿Cómo Funciona? </span>
+
+### <span style="font-size:0.7em" class="fragment">- ¿Qué es un pagaré bancario?</span>
+
+### <span style="font-size:0.7em" class="fragment">- Características de un pagaré bancario</span>
+
+
+### <span style="font-size:0.7em" class="fragment">- Diferencias entre pagaré y pagaré bancario </span>
+
+### <span style="font-size:0.7em" class="fragment">- Interés simple y compuesto</span>
+
+### <span style="font-size:0.7em" class="fragment">- Riesgos de un pagaré bancario </span>
+
+### <span style="font-size:0.7em" class="fragment">- Relación con otros temas financieros</span>
+
+### <span style="font-size:0.7em" class="fragment">- Conclusión </span>
+:::
+:::
+
+
+
+## <span style="color:red ;" class="fragment">Orígenes del pagaré </span>
+
+
+
+::: incremental
+
+- El pagaré nació en la Edad Media en las ciudades del norte de Italia, mucho antes que naciera la letra de cambio. Este título de crédito se inventó para evitar tener que transportar efectivo en desplazamientos en los que estaba asegurada la aparición de bandoleros.<br>
+-De esta manera, se entregaba el dinero en efectivo a un banquero y éste firmaba el pagaré con la promesa de retornarlo a quien se lo había entregado o a quien denominase en otro lugar.
+:::
+
+
+#  <span style="color:red;" class="fragment">-CONCEPTO-</span> {.sin-logo}
+## <span style="font-size:0.7em;color:red;" class="fragment">Definición de pagaré según la Ley General de Títulos y Operaciones de Crédito en México (LGTOC)</span> {.sin-logo}
+
+::: incremental
+
+- El pagaré es un documento que contiene una promesa incondicional de pago de una suma determinada de dinero que una persona llamada suscriptor hace a otra persona llamada tenedor o beneficiario.
+
+- Por lo tanto y toda vez que el pagaré es un título de crédito, el tenedor o beneficiario del pagaré tiene el derecho de recibir el pago de la suma determinada de dinero por parte del obligado al pago, es decir del suscriptor del documento.
+
+:::
+
+
+
+
+## <span style="color:red;" class="fragment fade-in" data-fragment-index="1">Elementos que lo conforman</span> 
+
+::: incremental 
+1.  Valor nominal (lo que se debe pagar) <br> 
+2. Fecha de vencimiento <br> 
+3.  Tasa de interés <br>
+4.  Plazo (tiempo hasta el pago) <br>
+5.  Acreedor (quien recibe el pago) y deudor (quien paga)
+ 
+- Ejemplo: Juan firma un pagaré por \$10,000 a 90 días con tasa del 12% anual
+
+
+:::
+
+# <span style="color:red;font-size:0.8em">Partes de un pagaré </span>
+
+![](pagaré.png){width=60% fig-align="center"}
+
+
+## <span style="color:red;" class="fragment">Características</span>
+
+::: incremental
+-   El pagaré es un documento autónomo, es decir, existe independientemente del acto o negocio que le dio origen
+-   El pagaré es un título ejecutivo
+-   Tiene fecha de vencimiento
+-   Genera intereses
+-   Puede ser negociable
+-   No se puede retirar antes del vencimiento
+:::
+
+
+## <span style="color:red;" class="fragment">¿Cómo funciona?</span>
+
+::: incremental
+1. Una persona promete por escrito pagar una cantidad de dinero a otra. <br> 
+2. Se fija una fecha de vencimiento para hacer el pago. <br> 
+3. Al llegar esa fecha, el deudor paga el monto indicado (más intereses si aplica). <br>
+4. El pagaré sirve como prueba legal en caso de que no se pague.
+:::
+
+## <span style="color: red;font-size:0.7em" class="fragment">¿Qué es un pagaré bancario?</span>
+
+::: incremental
+
+- Un pagaré bancario es un instrumento de inversión emitido por un banco o institución financiera, en el que el emisor se compromete a devolver a un cliente el capital invertido más los intereses generados en un plazo fijo preestablecido. <br>
+- Es un título de crédito seguro, con rendimientos garantizados y sin riesgo de pérdida del capital, que sirve para invertir y hacer crecer el dinero. 
+
+:::
+
+## <span style="color: red;font-size:0.7em" class="fragment">Características de un pagaré bancario</span>
+
+::: {.scrollable style="height:625px; overflow-y: scroll;"}
+::: incremental
+
+- Plazos definidos: Puedes elegir el plazo que mejor se adapte a tus necesidades de liquidez, que puede ser corto o más largo (hasta un año o más). <br>
+- Seguridad y regulación: Están respaldados por autoridades financieras y, en algunos casos, protegidos por un fondo de seguro para depósitos hasta por un cierto monto, lo que los hace seguros. <br>
+- Bajo riesgo: Se considera un producto financiero de bajo riesgo, ideal para quienes buscan proteger su dinero y obtener rendimientos sin la volatilidad del mercado bursátil. <br>
+- Simplicidad y transparencia: Son productos financieros sencillos de entender, con información pública y comprensible sobre sus plazos, valores y rendimientos. 
+
+::: 
+:::
+
+
+## <span style="color: red;font-size:0.7em">Diferencias entre pagaré y pagaré bancario</span>
+
+:::: columns
+::: {.column width="40%"}
+Pagaré: <br> - Emitido por cualquier persona, empresa o institución <br> - No tiene respaldo adicional <br> - Se establece de acuerdo a las partes involucradas.
+:::
+
+::: {.column width="60%"}
+Pagaré bancario: <br> -Lo emite una institucion financiera <br> - Tiene respaldo de una institución <br> - Es un instrumento de inversion para el cliente, se le regresa el  dinero + interés.
+:::
+::::
+
+## <span style="color:red;">Interés simple</span>
+
+![](interés1.png){width=60% fig-align="center"}
+
+## <span style="color:red;">Pagaré con Interés compuesto </span>
+
+![](interés2.png){width=60% fig-align="center"}
+
+
+::: {.scrollable style="height:725px; overflow-y: scroll;"}
+#  <span style="color:red; font-size: 0.7em;" class="fragment">Riesgos de un pagaré bancario</span> 
+
+::: incremental
+
+- Inflación: Si la tasa de interés del pagaré es menor que la tasa de inflación, tu dinero perderá poder adquisitivo, incluso si estás ganando intereses.
+
+- Riesgo de quiebra del banco: Aunque los pagarés están respaldados por el banco, si este llegase a tener problemas graves y no supera el monto cubierto por el Instituto para la Protección al Ahorro Bancario (IPAB), se puede perder el capital.
+
+- Baja liquidez: Los pagarés no son tan líquidos como otras inversiones. Si necesitas acceder a tu dinero antes del vencimiento, es posible que no puedas venderlo fácilmente en el mercado secundario, y podrías enfrentar comisiones
+
+- Comisiones por cancelación: Algunos bancos pueden cobrar comisiones si deseas recuperar tu dinero antes de la fecha de vencimiento del pagaré.
+
+- Falta de diversificación: Al invertir en un pagaré, estás invirtiendo en un solo emisor (el banco), lo cual no te permite diversificar tu inversión y aumenta el riesgo asociado a ese emisor. 
+:::
+:::
+
+# <span style="color:red;font-size:0.6em">Relación con otros temas financieros</span>
+
+::: columns
+::: {.column width="45%"}
+::: incremental
+**Usos comunes**<br>
+1.  Créditos personales <br>
+2.  Financiamiento empresarial <br>
+3.  Inversiones <br>
+:::
+:::
+
+::: {.column width="55%"}
+::: incremental
+**Conexiones con matemáticas financieras**<br>
+1. Interés Simple (IS) <br>
+2. Interés Compuesto (IC) <br>
+3. Tasa efectiva <br>
+4. Tasa nominal <br>
+5. Capitalización simple <br>
+6. Equivalencia financiera <br>
+:::
+:::
+:::
+
+
+
+## <span style="color:red;" class="fragment">Conclusión</span> {.mover-slide}
+
+::: incremental
+
+- El pagaré bancario es más que un simple documento de deuda: es una herramienta financiera que encapsula el valor del dinero en el tiempo. <br>
+- Evaluar un pagaré no solo implica calcular cuánto se va a pagar, sino comprender cómo se comporta el capital bajo condiciones temporales y financieras específicas.<br>
+- Es aplicar matemáticas con propósito: transformar fórmulas en decisiones reales.Detrás de cada pagaré hay una historia de valor, riesgo y oportunidad que merece ser modelada con precisión.
+:::
+
+
