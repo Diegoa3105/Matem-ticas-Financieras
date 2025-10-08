@@ -11,7 +11,7 @@ editor: visual
 
 # Generales 
 
-Archivo de la presentación en este [link](Equipo1.qmd)
+Archivo de la presentación en este [link](Equipo[1].html)
 
 ## Quarto
 
