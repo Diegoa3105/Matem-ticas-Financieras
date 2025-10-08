@@ -9,7 +9,7 @@ format:
 editor: visual
 ---
 
-# Generales 
+# Generales
 
 Archivo de la presentación en este [link](Equipo[1].html)
 
