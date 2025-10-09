@@ -11,7 +11,7 @@ editor: visual
 
 # Generales
 
-Archivo de la presentación en este [link](Equipo[1].html)
+Archivo de la presentación en este [link](https://diegoa3105.github.io/Matem-ticas-Financieras/Presentacion/equipo1.html#/title-slide)
 
 ## Quarto
 
