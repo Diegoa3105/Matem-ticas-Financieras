@@ -1,0 +1,362 @@
+---
+title: "Tablas de Amortización de Deuda"
+subtitle: "Matemáticas Financieras, Actuaría y Ciencia de Datos"
+author: |
+  Profesor: Oscar de la Torre
+  Equipo: 5
+
+format:
+  revealjs:
+    slide-number: true
+    incremental: true
+    theme: night
+    transition: fade
+    background-transition: fade
+    center: true
+    auto-slide: 0
+    css: styles.css
+lang: es
+---
+# INTRODUCCIÓN
+
+**Materia:**
+Matemáticas Financieras, Actuaría y Ciencia de Datos
+
+**Profesor:**
+Oscar de la Torre
+
+**Equipo:**
+<br>- Estefanía Zarco García<br>
+- Moisés Vitela Silva<br>
+- Diego Alberto Montes Ramírez<br>
+- Diego Quintero Pérez<br>
+- Valeria Beltrán González<br>
+
+---
+
+## <span style="color:red">Índice</span>
+
+1. ¿Qué es una tabla de amortización?
+2. ¿Para qué sirve?
+3. Elementos básicos de una deuda
+4. Tipos de amortización más comunes
+5. Cómo se construye una tabla de amortización
+6. Ejemplo completo paso a paso
+7. Conclusión
+
+
+---
+
+## <span style="color:red">1. ¿Qué es una tabla de amortización?</span>
+
+Una **tabla de amortización de deuda** es una tabla que muestra, periodo por periodo:
+
+- Cuánto se paga en total.
+- De ese pago, cuánto es **interés**.
+- Cuánto es **amortización de capital** (lo que realmente baja la deuda).
+- El **saldo insoluto** (lo que todavía se debe) después de cada pago.
+
+---
+
+## <span style="color:red">1. ¿Qué es una tabla de amortización?</span>
+
+En otras palabras:
+
+Es una forma ordenada y clara de ver **cómo se va pagando un préstamo en el tiempo**, de inicio a fin.
+
+Muestra el “camino” de la deuda:
+
+- Desde el momento en que se pide el dinero.
+- Hasta el momento en que se termina de pagar.
+
+---
+
+## <span style="color:red">2. ¿Para qué sirve?</span>
+
+La tabla de amortización sirve para:
+
+- Entender **cuánto estás pagando de intereses** y cuánto realmente baja tu deuda.
+- Planear tus **finanzas personales** (hipoteca, auto, tarjeta de crédito, etc.).
+- Comparar diferentes créditos:
+  - ¿Cuál conviene más?
+  - ¿Qué plazo es mejor?
+  - ¿Qué tasa de interés es más razonable?
+
+---
+
+## <span style="color:red">2. ¿Para qué sirve?</span>
+
+También es muy útil para:
+
+- Bancos y financieras:
+  - Diseñar productos de crédito.
+  - Calcular intereses y saldos.
+
+- Actuaría y ciencia de datos:
+  - Modelar carteras de crédito.
+  - Estimar flujos de efectivo futuros.
+  - Evaluar riesgo de impago.
+
+---
+
+## <span style="color:red">3. Elementos básicos de una deuda</span>
+
+Para construir una tabla de amortización, siempre tenemos:
+
+- **Principal o capital inicial**
+  Monto del préstamo que se recibe al inicio.
+
+- **Plazo**
+  Tiempo total para pagar (años, meses, quincenas, etc.).
+
+- **Frecuencia de pago**
+  Cada cuánto se paga (mensual, quincenal, anual, etc.).
+
+---
+
+## <span style="color:red">3. Elementos básicos de una deuda</span>
+
+Otros elementos clave:
+
+- **Tasa de interés nominal**
+  Por ejemplo, 12% anual.
+
+- **Tasa de interés efectiva del periodo**
+  Es la tasa que se aplica en cada periodo de pago.
+  Por ejemplo, si la tasa nominal anual es 12% y los pagos son mensuales:
+  tasa mensual ≈ 12% / 12 = 1% al mes (en el caso simple).
+
+---
+
+## <span style="color:red">3. Elementos básicos de una deuda</span>
+
+Y en cada periodo tendremos:
+
+- **Interés del periodo**
+  Depende del saldo insoluto y de la tasa.
+
+- **Amortización del periodo**
+  Parte del pago que reduce el capital.
+
+- **Pago total del periodo**
+  Interés + amortización.
+
+- **Saldo insoluto**
+  Saldo del préstamo después del pago.
+
+---
+
+## <span style="color:red">4. Tipos de amortización más comunes</span>
+
+Hay varios esquemas de amortización, entre los más usados están:
+
+- Amortización francesa
+- Amortización alemana
+- Amortización americana (o con pago único de capital)
+
+En esta presentación nos enfocaremos principalmente en la **amortización francesa**, ya que es la más común en créditos personales e hipotecarios.
+
+---
+
+## <span style="color:red">4. Amortización francesa</span>
+
+Características:
+
+- El **pago periódico es constante** durante todo el plazo.
+- En los primeros periodos:
+  - El interés es alto.
+  - La amortización de capital es baja.
+- Con el tiempo:
+  - El interés baja.
+  - La amortización de capital sube.
+
+Esto hace que el pago sea más cómodo y predecible para el deudor.
+
+---
+
+## <span style="color:red">4. Amortización francesa</span>
+
+Fórmula del pago periódico (cuota).
+
+:::: {.columns}
+::: {.column width="60%"}
+- $$P$$ = principal (monto del préstamo).
+- $$i$$ = tasa de interés por período.
+
+:::
+
+::: {.column width="40%"}
+- $$n$$ = número total de períodos.
+- $$R$$ = pago periódico.
+$$R = \frac{P \cdot i}{1 - (1 + i)^{-n}}$$
+:::
+::::
+---
+
+## <span style="color:red">5. Cómo se construye una tabla de amortización</span>
+
+Pasos generales para un esquema francés:
+
+:::: {.columns}
+::: {.column width="60%"}
+1. Calcular la tasa de interés por periodo.
+2. Calcular el pago periódico, usando la fórmula.
+3. Para cada periodo:
+   a. Calcular el **interés**: saldo inicial del periodo × tasa del periodo.
+
+:::
+::: {.column width="40%"}
+ b. Calcular la **amortización**: 
+   pago $$ R $$ − interés.
+   c. Calcular el **saldo final**: saldo inicial − amortización.
+:::
+::::
+---
+
+## <span style="color:red">5. Cómo se construye una tabla de amortización</span>
+
+Estructura típica de la tabla:
+
+- Periodo
+- Saldo inicial
+- Pago
+- Interés
+- Amortización
+- Saldo final
+
+Se repite el cálculo periodo a periodo hasta que el saldo final llegue a **cero** 
+
+---
+
+## <span style="color:red">Ejemplo Amortización Francesa</span>
+
+![](frances.png){width="60%" fig-align="center"}
+
+
+## <span style="color:red">6. Ejemplo: datos del problema</span>
+
+Supongamos el siguiente crédito:
+
+- Monto del préstamo: 10,000 pesos.
+- Tasa de interés nominal anual: 12%.
+- Pagos: **mensuales**.
+- Plazo: 12 meses.
+- Esquema: **amortización francesa** (pago mensual constante).
+
+---
+
+
+## <span style="color:red">6. Ejemplo: tasa del periodo</span>
+
+Como la tasa nominal anual es 12% y los pagos son mensuales, usamos la aproximación simple:
+
+- Tasa de interés mensual $$ i = 12\% / 12 = 1\% $$ por mes.
+- En forma decimal: $$ i = 0.01 $$
+- Número de periodos $$ n = 12 $$
+- Principal $$ P = 10{,}000 $$
+
+---
+
+## <span style="color:red">6. Ejemplo: cálculo del pago R</span>
+
+Usamos la fórmula:
+
+$$R = \frac{P \cdot i}{1 - (1 + i)^{-n}}$$
+
+Sustituyendo:
+
+- $$ P = 10{,}000 $$
+- $$ i = 0.01 $$
+- $$ n = 12 $$
+
+
+Podemos calcular:
+
+$$R \approx \frac{10{,}000 \cdot 0.01}{1 - (1.01)^{-12}}$$
+---
+
+El resultado es aproximadamente:
+
+- $$ R \approx 888.49 $$ pesos (pago mensual constante).
+
+---
+
+## <span style="color:red">6. Ejemplo: estructura de la tabla</span>
+
+La tabla tendrá 12 filas, una por cada mes, con las columnas:
+
+- Periodo (1, 2, 3, …, 12)
+- Saldo inicial
+- Pago (888.49)
+- Interés del periodo
+- Amortización del periodo
+- Saldo final
+
+---
+
+## <span style="color:red">6. Ejemplo: periodo 1</span>
+
+Periodo 1:
+
+- Saldo inicial: 10,000.00
+- Interés: 10,000.00 × 0.01 = 100.00
+- Pago: 888.49
+- Amortización: 888.49 − 100.00 = 788.49
+- Saldo final: 10,000.00 − 788.49 = 9,211.51
+
+---
+
+## <span style="color:red">6. Ejemplo: periodo 2</span>
+
+Periodo 2:
+
+- Saldo inicial: 9,211.51
+- Interés: 9,211.51 × 0.01 ≈ 92.12
+- Pago: 888.49
+- Amortización: 888.49 − 92.12 ≈ 796.37
+- Saldo final: 9,211.51 − 796.37 ≈ 8,415.14
+
+---
+
+## <span style="color:red">6. Ejemplo: esquema general</span>
+
+Siguiendo la misma lógica, se calculan todos los periodos hasta el 12.
+
+En cada periodo:
+
+- El **interés** disminuye, porque se calcula sobre un saldo menor.
+- La **amortización** aumenta, porque el pago es constante.
+- El **saldo final** va bajando hasta llegar prácticamente a cero en el último periodo.
+
+---
+
+## <span style="color:red">6. Ejemplo: vista resumida de la tabla</span>
+
+La tabla final (de manera resumida) se ve así:
+
+Periodo | Saldo inicial | Pago | Interés | Amortización | Saldo final
+------- | ------------- | ---- | --------| ------------ | -----------
+1       | 10,000.00     | 888.49 | 100.00 | 788.49 | 9,211.51
+2       | 9,211.51      | 888.49 | 92.12  | 796.37 | 8,415.14
+...     | ...           | ...    | ...    | ...    | ...
+12      | ≈ 879.00      | 888.49 | ≈ 8.79 | ≈ 879.70 | ≈ 0.00
+
+(Los valores intermedios se calculan con la misma fórmula periodo a periodo.)
+
+---
+
+## <span style="color:red">7. Conclusión</span>
+
+Las tablas de amortización son una herramienta **esencial** para entender cómo se paga una deuda en el tiempo: permiten ver claramente cuánto de cada pago se va a intereses y cuánto realmente reduce el capital, es muy común porque da estabilidad al deudor ya que:
+
+- Tomar mejores decisiones financieras.
+- Evitar sobreendeudarse.
+- Evaluar si le conviene adelantar pagos o cambiar el plazo.
+
+
+---
+
+Muchas gracias por su atención.
+---
+
+## 
