@@ -1,0 +1,26 @@
+.smaller {
+  font-size: 0.5em;
+}
+
+.reveal .slides {
+  background-image: url("logo.png");
+  background-position: right 16px bottom 16px;
+  background-repeat: no-repeat;
+  background-size: 90px;
+}
+
+section.sin-logo{
+  background-image: none !important;
+}
+
+.reveal {
+  background-image: url("fondish.jpg");
+  background-size: cover;       
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.small-text {
+  font-size: 0.8em;
+}
+
+
