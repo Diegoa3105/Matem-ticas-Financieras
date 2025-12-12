@@ -11,7 +11,7 @@ editor: visual
 
 # Generales
 
-Archivo de la presentación en este [link](https://diegoa3105.github.io/Matem-ticas-Financieras/Presentacion/equipo1.html#/title-slide)
+Archivo de la presentación en este [link](equipo1.html)
 
 Función de interés simple en este
 [link](InteresSimpleEquipo1.html)
