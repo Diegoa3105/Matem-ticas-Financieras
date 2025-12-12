@@ -28,3 +28,6 @@ interes_simple_1 <- function(a, r, n){
 }
 
 interes_simple_1(980, 0.03, 6)
+
+
+
