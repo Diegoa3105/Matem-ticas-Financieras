@@ -5,7 +5,7 @@ format: html
 editor: visual
 ---
 
-## Función para interés simple 
+## Función para interés simple
 
 ```{r}
 interes_simple <- function(a, r, n){
@@ -23,9 +23,8 @@ interes_simple(15000, 0.12, 1)
 interes_simple(980, 0.03, 6)
 ```
 
+## Ejemplo con operadores else, if
 
-
-## Ejemplo con operadores else, if 
 ```{r}
 interes_simple_1 <- function(a, r, n){
   
@@ -44,8 +43,6 @@ interes_simple_1 <- function(a, r, n){
 }
 ```
 
-
-
 ## Ejemplos
 
 ```{r}
@@ -63,6 +60,3 @@ interes_simple_1(15000, 0.12, 1)
 ```{r}
 interes_simple_1(980, 0.03, 6)
 ```
-
-
-
