@@ -4,6 +4,391 @@
     "href": "index.html",
     "title": "Equipo1",
     "section": "",
-    "text": "Generales\nArchivo de la presentación en este link\nArchivo de la presentación en este link\nFunción de interés simple en este link"
+    "text": "Generales\nArchivo de la presentación en este link\nArchivo de la presentación Deuda y tabla de amortización en este link\nFunción de interés simple en este link\nEl archivo de la función de interés simple se encuentra aqui link\nFuncion de interés compuesto esta en este link"
+  },
+  {
+    "objectID": "Presentacion/index.html",
+    "href": "Presentacion/index.html",
+    "title": "index.qmd",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "Presentacion/index.html#quarto",
+    "href": "Presentacion/index.html#quarto",
+    "title": "index.qmd",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "Presentacion/index.html#running-code",
+    "href": "Presentacion/index.html#running-code",
+    "title": "index.qmd",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "InteresSimpleEquipo1.html",
+    "href": "InteresSimpleEquipo1.html",
+    "title": "Interés Simple",
+    "section": "",
+    "text": "interes_simple &lt;- function(a, r, n){\n  VF &lt;- a * (1 + r * n)\n  return(VF)\n}"
+  },
+  {
+    "objectID": "InteresSimpleEquipo1.html#función-para-interés-simple",
+    "href": "InteresSimpleEquipo1.html#función-para-interés-simple",
+    "title": "Interés Simple",
+    "section": "",
+    "text": "interes_simple &lt;- function(a, r, n){\n  VF &lt;- a * (1 + r * n)\n  return(VF)\n}"
+  },
+  {
+    "objectID": "InteresSimpleEquipo1.html#ejemplos",
+    "href": "InteresSimpleEquipo1.html#ejemplos",
+    "title": "Interés Simple",
+    "section": "Ejemplos",
+    "text": "Ejemplos\n\ninteres_simple(1000, 0.05, 3)\n\n[1] 1150\n\ninteres_simple(2500, 0.08, 2)\n\n[1] 2900\n\ninteres_simple(15000, 0.12, 1)\n\n[1] 16800\n\ninteres_simple(980, 0.03, 6)\n\n[1] 1156.4"
+  },
+  {
+    "objectID": "InteresSimpleEquipo1.html#ejemplo-con-operadores-else-if",
+    "href": "InteresSimpleEquipo1.html#ejemplo-con-operadores-else-if",
+    "title": "Interés Simple",
+    "section": "Ejemplo con operadores else, if",
+    "text": "Ejemplo con operadores else, if\n\ninteres_simple_1 &lt;- function(a, r, n){\n  \n  # Validaciones\n  if(a &lt;= 0 | r &lt; 0 | n &lt;= 0){\n    return(\"Error: Verifica que a&gt;0, r&gt;=0 y n&gt;0\")\n  }\n  \n  # Cálculo con for\n  VF &lt;- a\n  for(i in 1:n){\n    VF &lt;- a * (1 + r * i)\n  }\n  \n  return(VF)\n}"
+  },
+  {
+    "objectID": "InteresSimpleEquipo1.html#ejemplos-1",
+    "href": "InteresSimpleEquipo1.html#ejemplos-1",
+    "title": "Interés Simple",
+    "section": "Ejemplos",
+    "text": "Ejemplos\n\ninteres_simple_1(980, 0.03, 6)\n\n[1] 1156.4\n\n\n\ninteres_simple_1(2500, 0.08, 2)\n\n[1] 2900\n\n\n\ninteres_simple_1(15000, 0.12, 1)\n\n[1] 16800\n\n\n\ninteres_simple_1(980, 0.03, 6)\n\n[1] 1156.4"
+  },
+  {
+    "objectID": "Equipo[1].html",
+    "href": "Equipo[1].html",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "",
+    "text": "Materia: Matemáticas Financieras, Actuaría y Ciencia de Datos\nProfesor: Oscar de la Torre\nEquipo: - Estefanía Zarco García - Moisés Vitela Silva - Diego Alberto Montes Ramírez - Diego Quintero Pérez - Valeria Beltrán González\n\n\n\n\n¿Qué es una tabla de amortización?\n¿Para qué sirve?\nElementos básicos de una deuda\nTipos de amortización más comunes\nCómo se construye una tabla de amortización\nEjemplo completo paso a paso\nConclusión\n\n\n\n\n\nUna tabla de amortización de deuda es una tabla que muestra, periodo por periodo:\n\nCuánto se paga en total.\nDe ese pago, cuánto es interés.\nCuánto es amortización de capital (lo que realmente baja la deuda).\nEl saldo insoluto (lo que todavía se debe) después de cada pago.\n\n\n\n\n\nEn otras palabras:\nEs una forma ordenada y clara de ver cómo se va pagando un préstamo en el tiempo, de inicio a fin.\nMuestra el “camino” de la deuda:\n\nDesde el momento en que se pide el dinero.\nHasta el momento en que se termina de pagar.\n\n\n\n\n\nLa tabla de amortización sirve para:\n\nEntender cuánto estás pagando de intereses y cuánto realmente baja tu deuda.\nPlanear tus finanzas personales (hipoteca, auto, tarjeta de crédito, etc.).\nComparar diferentes créditos:\n\n¿Cuál conviene más?\n¿Qué plazo es mejor?\n¿Qué tasa de interés es más razonable?\n\n\n\n\n\n\nTambién es muy útil para:\n\nBancos y financieras:\n\nDiseñar productos de crédito.\nCalcular intereses y saldos.\n\nActuaría y ciencia de datos:\n\nModelar carteras de crédito.\nEstimar flujos de efectivo futuros.\nEvaluar riesgo de impago.\n\n\n\n\n\n\nPara construir una tabla de amortización, siempre tenemos:\n\nPrincipal o capital inicial Monto del préstamo que se recibe al inicio.\nPlazo Tiempo total para pagar (años, meses, quincenas, etc.).\nFrecuencia de pago Cada cuánto se paga (mensual, quincenal, anual, etc.).\n\n\n\n\n\nOtros elementos clave:\n\nTasa de interés nominal Por ejemplo, 12% anual.\nTasa de interés efectiva del periodo Es la tasa que se aplica en cada periodo de pago. Por ejemplo, si la tasa nominal anual es 12% y los pagos son mensuales: tasa mensual ≈ 12% / 12 = 1% al mes (en el caso simple).\n\n\n\n\n\nY en cada periodo tendremos:\n\nInterés del periodo Depende del saldo insoluto y de la tasa.\nAmortización del periodo Parte del pago que reduce el capital.\nPago total del periodo Interés + amortización.\nSaldo insoluto Saldo del préstamo después del pago.\n\n\n\n\n\nHay varios esquemas de amortización, entre los más usados están:\n\nAmortización francesa\nAmortización alemana\nAmortización americana (o con pago único de capital)\n\nEn esta presentación nos enfocaremos principalmente en la amortización francesa, ya que es la más común en créditos personales e hipotecarios.\n\n\n\n\nCaracterísticas:\n\nEl pago periódico es constante durante todo el plazo.\nEn los primeros periodos:\n\nEl interés es alto.\nLa amortización de capital es baja.\n\nCon el tiempo:\n\nEl interés baja.\nLa amortización de capital sube.\n\n\nEsto hace que el pago sea más cómodo y predecible para el deudor.\n\n\n\n\nFórmula del pago periódico (cuota).\n\n\n\n\\[P\\] = principal (monto del préstamo).\n\\[i\\] = tasa de interés por período.\n\n\n\n\\[n\\] = número total de períodos.\n\\[R\\] = pago periódico. \\[R = \\frac{P \\cdot i}{1 - (1 + i)^{-n}}\\]\n\n\n\n\n\n\n\nPasos generales para un esquema francés:\n\n\n\nCalcular la tasa de interés por periodo.\nCalcular el pago periódico, usando la fórmula.\nPara cada periodo:\n\nCalcular el interés: saldo inicial del periodo × tasa del periodo.\n\n\n\n\nCalcular la amortización: pago \\[ R \\] − interés.\nCalcular el saldo final: saldo inicial − amortización.\n\n\n\n\n\n\n\nEstructura típica de la tabla:\n\nPeriodo\nSaldo inicial\nPago\nInterés\nAmortización\nSaldo final\n\nSe repite el cálculo periodo a periodo hasta que el saldo final llegue a cero\n\n\n\n\n\n\n\n\n\n\n\n\nSupongamos el siguiente crédito:\n\nMonto del préstamo: 10,000 pesos.\nTasa de interés nominal anual: 12%.\nPagos: mensuales.\nPlazo: 12 meses.\nEsquema: amortización francesa (pago mensual constante).\n\n\n\n\n\nComo la tasa nominal anual es 12% y los pagos son mensuales, usamos la aproximación simple:\n\nTasa de interés mensual \\[ i = 12\\% / 12 = 1\\% \\] por mes.\nEn forma decimal: \\[ i = 0.01 \\]\nNúmero de periodos \\[ n = 12 \\]\nPrincipal \\[ P = 10{,}000 \\]\n\n\n\n\n\nUsamos la fórmula:\n\\[R = \\frac{P \\cdot i}{1 - (1 + i)^{-n}}\\]\nSustituyendo:\n\n\\[ P = 10{,}000 \\]\n\\[ i = 0.01 \\]\n\\[ n = 12 \\]\n\nPodemos calcular:\n\n\n\nEl resultado es aproximadamente:\n\n\\[ R \\approx 888.49 \\] pesos (pago mensual constante).\n\n\n\n\n\nLa tabla tendrá 12 filas, una por cada mes, con las columnas:\n\nPeriodo (1, 2, 3, …, 12)\nSaldo inicial\nPago (888.49)\nInterés del periodo\nAmortización del periodo\nSaldo final\n\n\n\n\n\nPeriodo 1:\n\nSaldo inicial: 10,000.00\nInterés: 10,000.00 × 0.01 = 100.00\nPago: 888.49\nAmortización: 888.49 − 100.00 = 788.49\nSaldo final: 10,000.00 − 788.49 = 9,211.51\n\n\n\n\n\nPeriodo 2:\n\nSaldo inicial: 9,211.51\nInterés: 9,211.51 × 0.01 ≈ 92.12\nPago: 888.49\nAmortización: 888.49 − 92.12 ≈ 796.37\nSaldo final: 9,211.51 − 796.37 ≈ 8,415.14\n\n\n\n\n\nSiguiendo la misma lógica, se calculan todos los periodos hasta el 12.\nEn cada periodo:\n\nEl interés disminuye, porque se calcula sobre un saldo menor.\nLa amortización aumenta, porque el pago es constante.\nEl saldo final va bajando hasta llegar prácticamente a cero en el último periodo.\n\n\n\n\n\nLa tabla final (de manera resumida) se ve así:\n\n\n\nPeriodo\nSaldo inicial\nPago\nInterés\nAmortización\nSaldo final\n\n\n\n\n1\n10,000.00\n888.49\n100.00\n788.49\n9,211.51\n\n\n2\n9,211.51\n888.49\n92.12\n796.37\n8,415.14\n\n\n…\n…\n…\n…\n…\n…\n\n\n12\n≈ 879.00\n888.49\n≈ 8.79\n≈ 879.70\n≈ 0.00\n\n\n\n(Los valores intermedios se calculan con la misma fórmula periodo a periodo.)\n\n\n\n\nLas tablas de amortización son una herramienta esencial para entender cómo se paga una deuda en el tiempo: permiten ver claramente cuánto de cada pago se va a intereses y cuánto realmente reduce el capital, es muy común porque da estabilidad al deudor ya que:\n\nTomar mejores decisiones financieras.\nEvitar sobreendeudarse.\nEvaluar si le conviene adelantar pagos o cambiar el plazo."
+  },
+  {
+    "objectID": "Equipo[1].html#índice",
+    "href": "Equipo[1].html#índice",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "Índice",
+    "text": "Índice\n\n¿Qué es una tabla de amortización?\n¿Para qué sirve?\nElementos básicos de una deuda\nTipos de amortización más comunes\nCómo se construye una tabla de amortización\nEjemplo completo paso a paso\nConclusión"
+  },
+  {
+    "objectID": "Equipo[1].html#qué-es-una-tabla-de-amortización",
+    "href": "Equipo[1].html#qué-es-una-tabla-de-amortización",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "1. ¿Qué es una tabla de amortización?",
+    "text": "1. ¿Qué es una tabla de amortización?\nUna tabla de amortización de deuda es una tabla que muestra, periodo por periodo:\n\nCuánto se paga en total.\nDe ese pago, cuánto es interés.\nCuánto es amortización de capital (lo que realmente baja la deuda).\nEl saldo insoluto (lo que todavía se debe) después de cada pago."
+  },
+  {
+    "objectID": "Equipo[1].html#qué-es-una-tabla-de-amortización-1",
+    "href": "Equipo[1].html#qué-es-una-tabla-de-amortización-1",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "1. ¿Qué es una tabla de amortización?",
+    "text": "1. ¿Qué es una tabla de amortización?\nEn otras palabras:\nEs una forma ordenada y clara de ver cómo se va pagando un préstamo en el tiempo, de inicio a fin.\nMuestra el “camino” de la deuda:\n\nDesde el momento en que se pide el dinero.\nHasta el momento en que se termina de pagar."
+  },
+  {
+    "objectID": "Equipo[1].html#para-qué-sirve",
+    "href": "Equipo[1].html#para-qué-sirve",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "2. ¿Para qué sirve?",
+    "text": "2. ¿Para qué sirve?\nLa tabla de amortización sirve para:\n\nEntender cuánto estás pagando de intereses y cuánto realmente baja tu deuda.\nPlanear tus finanzas personales (hipoteca, auto, tarjeta de crédito, etc.).\nComparar diferentes créditos:\n\n¿Cuál conviene más?\n¿Qué plazo es mejor?\n¿Qué tasa de interés es más razonable?"
+  },
+  {
+    "objectID": "Equipo[1].html#para-qué-sirve-1",
+    "href": "Equipo[1].html#para-qué-sirve-1",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "2. ¿Para qué sirve?",
+    "text": "2. ¿Para qué sirve?\nTambién es muy útil para:\n\nBancos y financieras:\n\nDiseñar productos de crédito.\nCalcular intereses y saldos.\n\nActuaría y ciencia de datos:\n\nModelar carteras de crédito.\nEstimar flujos de efectivo futuros.\nEvaluar riesgo de impago."
+  },
+  {
+    "objectID": "Equipo[1].html#elementos-básicos-de-una-deuda",
+    "href": "Equipo[1].html#elementos-básicos-de-una-deuda",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "3. Elementos básicos de una deuda",
+    "text": "3. Elementos básicos de una deuda\nPara construir una tabla de amortización, siempre tenemos:\n\nPrincipal o capital inicial Monto del préstamo que se recibe al inicio.\nPlazo Tiempo total para pagar (años, meses, quincenas, etc.).\nFrecuencia de pago Cada cuánto se paga (mensual, quincenal, anual, etc.)."
+  },
+  {
+    "objectID": "Equipo[1].html#elementos-básicos-de-una-deuda-1",
+    "href": "Equipo[1].html#elementos-básicos-de-una-deuda-1",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "3. Elementos básicos de una deuda",
+    "text": "3. Elementos básicos de una deuda\nOtros elementos clave:\n\nTasa de interés nominal Por ejemplo, 12% anual.\nTasa de interés efectiva del periodo Es la tasa que se aplica en cada periodo de pago. Por ejemplo, si la tasa nominal anual es 12% y los pagos son mensuales: tasa mensual ≈ 12% / 12 = 1% al mes (en el caso simple)."
+  },
+  {
+    "objectID": "Equipo[1].html#elementos-básicos-de-una-deuda-2",
+    "href": "Equipo[1].html#elementos-básicos-de-una-deuda-2",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "3. Elementos básicos de una deuda",
+    "text": "3. Elementos básicos de una deuda\nY en cada periodo tendremos:\n\nInterés del periodo Depende del saldo insoluto y de la tasa.\nAmortización del periodo Parte del pago que reduce el capital.\nPago total del periodo Interés + amortización.\nSaldo insoluto Saldo del préstamo después del pago."
+  },
+  {
+    "objectID": "Equipo[1].html#tipos-de-amortización-más-comunes",
+    "href": "Equipo[1].html#tipos-de-amortización-más-comunes",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "4. Tipos de amortización más comunes",
+    "text": "4. Tipos de amortización más comunes\nHay varios esquemas de amortización, entre los más usados están:\n\nAmortización francesa\nAmortización alemana\nAmortización americana (o con pago único de capital)\n\nEn esta presentación nos enfocaremos principalmente en la amortización francesa, ya que es la más común en créditos personales e hipotecarios."
+  },
+  {
+    "objectID": "Equipo[1].html#amortización-francesa",
+    "href": "Equipo[1].html#amortización-francesa",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "4. Amortización francesa",
+    "text": "4. Amortización francesa\nCaracterísticas:\n\nEl pago periódico es constante durante todo el plazo.\nEn los primeros periodos:\n\nEl interés es alto.\nLa amortización de capital es baja.\n\nCon el tiempo:\n\nEl interés baja.\nLa amortización de capital sube.\n\n\nEsto hace que el pago sea más cómodo y predecible para el deudor."
+  },
+  {
+    "objectID": "Equipo[1].html#amortización-francesa-1",
+    "href": "Equipo[1].html#amortización-francesa-1",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "4. Amortización francesa",
+    "text": "4. Amortización francesa\nFórmula del pago periódico (cuota).\n\n\n\n\\[P\\] = principal (monto del préstamo).\n\\[i\\] = tasa de interés por período.\n\n\n\n\\[n\\] = número total de períodos.\n\\[R\\] = pago periódico. \\[R = \\frac{P \\cdot i}{1 - (1 + i)^{-n}}\\]"
+  },
+  {
+    "objectID": "Equipo[1].html#cómo-se-construye-una-tabla-de-amortización",
+    "href": "Equipo[1].html#cómo-se-construye-una-tabla-de-amortización",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "5. Cómo se construye una tabla de amortización",
+    "text": "5. Cómo se construye una tabla de amortización\nPasos generales para un esquema francés:\n\n\n\nCalcular la tasa de interés por periodo.\nCalcular el pago periódico, usando la fórmula.\nPara cada periodo:\n\nCalcular el interés: saldo inicial del periodo × tasa del periodo.\n\n\n\n\nCalcular la amortización: pago \\[ R \\] − interés.\nCalcular el saldo final: saldo inicial − amortización."
+  },
+  {
+    "objectID": "Equipo[1].html#cómo-se-construye-una-tabla-de-amortización-1",
+    "href": "Equipo[1].html#cómo-se-construye-una-tabla-de-amortización-1",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "5. Cómo se construye una tabla de amortización",
+    "text": "5. Cómo se construye una tabla de amortización\nEstructura típica de la tabla:\n\nPeriodo\nSaldo inicial\nPago\nInterés\nAmortización\nSaldo final\n\nSe repite el cálculo periodo a periodo hasta que el saldo final llegue a cero"
+  },
+  {
+    "objectID": "Equipo[1].html#ejemplo-datos-del-problema",
+    "href": "Equipo[1].html#ejemplo-datos-del-problema",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "6. Ejemplo: datos del problema",
+    "text": "6. Ejemplo: datos del problema\nSupongamos el siguiente crédito:\n\nMonto del préstamo: 10,000 pesos.\nTasa de interés nominal anual: 12%.\nPagos: mensuales.\nPlazo: 12 meses.\nEsquema: amortización francesa (pago mensual constante)."
+  },
+  {
+    "objectID": "Equipo[1].html#ejemplo-tasa-del-periodo",
+    "href": "Equipo[1].html#ejemplo-tasa-del-periodo",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "6. Ejemplo: tasa del periodo",
+    "text": "6. Ejemplo: tasa del periodo\nComo la tasa nominal anual es 12% y los pagos son mensuales, usamos la aproximación simple:\n\nTasa de interés mensual \\[ i = 12\\% / 12 = 1\\% \\] por mes.\nEn forma decimal: \\[ i = 0.01 \\]\nNúmero de periodos \\[ n = 12 \\]\nPrincipal \\[ P = 10{,}000 \\]"
+  },
+  {
+    "objectID": "Equipo[1].html#ejemplo-cálculo-del-pago-r",
+    "href": "Equipo[1].html#ejemplo-cálculo-del-pago-r",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "6. Ejemplo: cálculo del pago R",
+    "text": "6. Ejemplo: cálculo del pago R\nUsamos la fórmula:\n\\[R = \\frac{P \\cdot i}{1 - (1 + i)^{-n}}\\]\nSustituyendo:\n\n\\[ P = 10{,}000 \\]\n\\[ i = 0.01 \\]\n\\[ n = 12 \\]\n\nPodemos calcular:"
+  },
+  {
+    "objectID": "Equipo[1].html#r-approx-frac10000-cdot-0.011---1.01-12",
+    "href": "Equipo[1].html#r-approx-frac10000-cdot-0.011---1.01-12",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "\\[R \\approx \\frac{10{,}000 \\cdot 0.01}{1 - (1.01)^{-12}}\\]",
+    "text": "\\[R \\approx \\frac{10{,}000 \\cdot 0.01}{1 - (1.01)^{-12}}\\]\nEl resultado es aproximadamente:\n\n\\[ R \\approx 888.49 \\] pesos (pago mensual constante)."
+  },
+  {
+    "objectID": "Equipo[1].html#ejemplo-estructura-de-la-tabla",
+    "href": "Equipo[1].html#ejemplo-estructura-de-la-tabla",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "6. Ejemplo: estructura de la tabla",
+    "text": "6. Ejemplo: estructura de la tabla\nLa tabla tendrá 12 filas, una por cada mes, con las columnas:\n\nPeriodo (1, 2, 3, …, 12)\nSaldo inicial\nPago (888.49)\nInterés del periodo\nAmortización del periodo\nSaldo final"
+  },
+  {
+    "objectID": "Equipo[1].html#ejemplo-periodo-1",
+    "href": "Equipo[1].html#ejemplo-periodo-1",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "6. Ejemplo: periodo 1",
+    "text": "6. Ejemplo: periodo 1\nPeriodo 1:\n\nSaldo inicial: 10,000.00\nInterés: 10,000.00 × 0.01 = 100.00\nPago: 888.49\nAmortización: 888.49 − 100.00 = 788.49\nSaldo final: 10,000.00 − 788.49 = 9,211.51"
+  },
+  {
+    "objectID": "Equipo[1].html#ejemplo-periodo-2",
+    "href": "Equipo[1].html#ejemplo-periodo-2",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "6. Ejemplo: periodo 2",
+    "text": "6. Ejemplo: periodo 2\nPeriodo 2:\n\nSaldo inicial: 9,211.51\nInterés: 9,211.51 × 0.01 ≈ 92.12\nPago: 888.49\nAmortización: 888.49 − 92.12 ≈ 796.37\nSaldo final: 9,211.51 − 796.37 ≈ 8,415.14"
+  },
+  {
+    "objectID": "Equipo[1].html#ejemplo-esquema-general",
+    "href": "Equipo[1].html#ejemplo-esquema-general",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "6. Ejemplo: esquema general",
+    "text": "6. Ejemplo: esquema general\nSiguiendo la misma lógica, se calculan todos los periodos hasta el 12.\nEn cada periodo:\n\nEl interés disminuye, porque se calcula sobre un saldo menor.\nLa amortización aumenta, porque el pago es constante.\nEl saldo final va bajando hasta llegar prácticamente a cero en el último periodo."
+  },
+  {
+    "objectID": "Equipo[1].html#ejemplo-vista-resumida-de-la-tabla",
+    "href": "Equipo[1].html#ejemplo-vista-resumida-de-la-tabla",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "6. Ejemplo: vista resumida de la tabla",
+    "text": "6. Ejemplo: vista resumida de la tabla\nLa tabla final (de manera resumida) se ve así:\n\n\n\nPeriodo\nSaldo inicial\nPago\nInterés\nAmortización\nSaldo final\n\n\n\n\n1\n10,000.00\n888.49\n100.00\n788.49\n9,211.51\n\n\n2\n9,211.51\n888.49\n92.12\n796.37\n8,415.14\n\n\n…\n…\n…\n…\n…\n…\n\n\n12\n≈ 879.00\n888.49\n≈ 8.79\n≈ 879.70\n≈ 0.00\n\n\n\n(Los valores intermedios se calculan con la misma fórmula periodo a periodo.)"
+  },
+  {
+    "objectID": "Equipo[1].html#conclusión",
+    "href": "Equipo[1].html#conclusión",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "7. Conclusión",
+    "text": "7. Conclusión\nLas tablas de amortización son una herramienta esencial para entender cómo se paga una deuda en el tiempo: permiten ver claramente cuánto de cada pago se va a intereses y cuánto realmente reduce el capital, es muy común porque da estabilidad al deudor ya que:\n\nTomar mejores decisiones financieras.\nEvitar sobreendeudarse.\nEvaluar si le conviene adelantar pagos o cambiar el plazo."
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#orígenes-del-pagaré-1",
+    "href": "Presentacion/equipo1PB.html#orígenes-del-pagaré-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Orígenes del pagaré",
+    "text": "Orígenes del pagaré\n\n\nEl pagaré nació en la Edad Media en las ciudades del norte de Italia, mucho antes que naciera la letra de cambio. Este título de crédito se inventó para evitar tener que transportar efectivo en desplazamientos en los que estaba asegurada la aparición de bandoleros. -De esta manera, se entregaba el dinero en efectivo a un banquero y éste firmaba el pagaré con la promesa de retornarlo a quien se lo había entregado o a quien denominase en otro lugar."
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#definición-de-pagaré-según-la-ley-general-de-títulos-y-operaciones-de-crédito-en-méxico-lgtoc",
+    "href": "Presentacion/equipo1PB.html#definición-de-pagaré-según-la-ley-general-de-títulos-y-operaciones-de-crédito-en-méxico-lgtoc",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Definición de pagaré según la Ley General de Títulos y Operaciones de Crédito en México (LGTOC)",
+    "text": "Definición de pagaré según la Ley General de Títulos y Operaciones de Crédito en México (LGTOC)\n\n\nEl pagaré es un documento que contiene una promesa incondicional de pago de una suma determinada de dinero que una persona llamada suscriptor hace a otra persona llamada tenedor o beneficiario.\nPor lo tanto y toda vez que el pagaré es un título de crédito, el tenedor o beneficiario del pagaré tiene el derecho de recibir el pago de la suma determinada de dinero por parte del obligado al pago, es decir del suscriptor del documento."
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#elementos-que-lo-conforman-1",
+    "href": "Presentacion/equipo1PB.html#elementos-que-lo-conforman-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Elementos que lo conforman",
+    "text": "Elementos que lo conforman\n\n\nValor nominal (lo que se debe pagar) \nFecha de vencimiento \nTasa de interés \nPlazo (tiempo hasta el pago) \nAcreedor (quien recibe el pago) y deudor (quien paga)\n\n\nEjemplo: Juan firma un pagaré por $10,000 a 90 días con tasa del 12% anual"
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#características-1",
+    "href": "Presentacion/equipo1PB.html#características-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Características",
+    "text": "Características\n\n\nEl pagaré es un documento autónomo, es decir, existe independientemente del acto o negocio que le dio origen\nEl pagaré es un título ejecutivo\nTiene fecha de vencimiento\nGenera intereses\nPuede ser negociable\nNo se puede retirar antes del vencimiento"
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#cómo-funciona-1",
+    "href": "Presentacion/equipo1PB.html#cómo-funciona-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "¿Cómo funciona?",
+    "text": "¿Cómo funciona?\n\n\nUna persona promete por escrito pagar una cantidad de dinero a otra. \nSe fija una fecha de vencimiento para hacer el pago. \nAl llegar esa fecha, el deudor paga el monto indicado (más intereses si aplica). \nEl pagaré sirve como prueba legal en caso de que no se pague."
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#qué-es-un-pagaré-bancario-1",
+    "href": "Presentacion/equipo1PB.html#qué-es-un-pagaré-bancario-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "¿Qué es un pagaré bancario?",
+    "text": "¿Qué es un pagaré bancario?\n\n\nUn pagaré bancario es un instrumento de inversión emitido por un banco o institución financiera, en el que el emisor se compromete a devolver a un cliente el capital invertido más los intereses generados en un plazo fijo preestablecido. \nEs un título de crédito seguro, con rendimientos garantizados y sin riesgo de pérdida del capital, que sirve para invertir y hacer crecer el dinero."
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#características-de-un-pagaré-bancario-1",
+    "href": "Presentacion/equipo1PB.html#características-de-un-pagaré-bancario-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Características de un pagaré bancario",
+    "text": "Características de un pagaré bancario\n\n\n\nPlazos definidos: Puedes elegir el plazo que mejor se adapte a tus necesidades de liquidez, que puede ser corto o más largo (hasta un año o más). \nSeguridad y regulación: Están respaldados por autoridades financieras y, en algunos casos, protegidos por un fondo de seguro para depósitos hasta por un cierto monto, lo que los hace seguros. \nBajo riesgo: Se considera un producto financiero de bajo riesgo, ideal para quienes buscan proteger su dinero y obtener rendimientos sin la volatilidad del mercado bursátil. \nSimplicidad y transparencia: Son productos financieros sencillos de entender, con información pública y comprensible sobre sus plazos, valores y rendimientos."
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#diferencias-entre-pagaré-y-pagaré-bancario-1",
+    "href": "Presentacion/equipo1PB.html#diferencias-entre-pagaré-y-pagaré-bancario-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Diferencias entre pagaré y pagaré bancario",
+    "text": "Diferencias entre pagaré y pagaré bancario\n\n\nPagaré:  - Emitido por cualquier persona, empresa o institución  - No tiene respaldo adicional  - Se establece de acuerdo a las partes involucradas.\n\nPagaré bancario:  -Lo emite una institucion financiera  - Tiene respaldo de una institución  - Es un instrumento de inversion para el cliente, se le regresa el dinero + interés."
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#interés-simple",
+    "href": "Presentacion/equipo1PB.html#interés-simple",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Interés simple",
+    "text": "Interés simple"
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#pagaré-con-interés-compuesto",
+    "href": "Presentacion/equipo1PB.html#pagaré-con-interés-compuesto",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Pagaré con Interés compuesto",
+    "text": "Pagaré con Interés compuesto"
+  },
+  {
+    "objectID": "Presentacion/equipo1PB.html#conclusión-1",
+    "href": "Presentacion/equipo1PB.html#conclusión-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Conclusión",
+    "text": "Conclusión\n\n\nEl pagaré bancario es más que un simple documento de deuda: es una herramienta financiera que encapsula el valor del dinero en el tiempo. \nEvaluar un pagaré no solo implica calcular cuánto se va a pagar, sino comprender cómo se comporta el capital bajo condiciones temporales y financieras específicas.\nEs aplicar matemáticas con propósito: transformar fórmulas en decisiones reales.Detrás de cada pagaré hay una historia de valor, riesgo y oportunidad que merece ser modelada con precisión."
+  },
+  {
+    "objectID": "Equipo[1].html#ejemplo-amortización-francesa",
+    "href": "Equipo[1].html#ejemplo-amortización-francesa",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "Ejemplo Amortización Francesa",
+    "text": "Ejemplo Amortización Francesa"
+  },
+  {
+    "objectID": "Equipo[1].html#muchas-gracias-por-su-atención.",
+    "href": "Equipo[1].html#muchas-gracias-por-su-atención.",
+    "title": "Tablas de Amortización de Deuda",
+    "section": "Muchas gracias por su atención.",
+    "text": "Muchas gracias por su atención."
+  },
+  {
+    "objectID": "InteresCompuestoEquipo1.html",
+    "href": "InteresCompuestoEquipo1.html",
+    "title": "Interes Compuesto",
+    "section": "",
+    "text": "interes_compuesto &lt;- function(a, r, n){\n  VF &lt;-  a * (1 + r ) ^ n\n  return(VF)\n}"
+  },
+  {
+    "objectID": "InteresCompuestoEquipo1.html#función-para-calcular-el-interés-compuesto",
+    "href": "InteresCompuestoEquipo1.html#función-para-calcular-el-interés-compuesto",
+    "title": "Interes Compuesto",
+    "section": "",
+    "text": "interes_compuesto &lt;- function(a, r, n){\n  VF &lt;-  a * (1 + r ) ^ n\n  return(VF)\n}"
+  },
+  {
+    "objectID": "InteresCompuestoEquipo1.html#ejemplos",
+    "href": "InteresCompuestoEquipo1.html#ejemplos",
+    "title": "Interes Compuesto",
+    "section": "Ejemplos",
+    "text": "Ejemplos\n\ninteres_compuesto(1000, 0.05, 3)\n\n[1] 1157.625\n\ninteres_compuesto(2500, 0.08, 2)\n\n[1] 2916\n\ninteres_compuesto(15000, 0.12, 1)\n\n[1] 16800\n\ninteres_compuesto(980, 0.03, 6)\n\n[1] 1170.171"
+  },
+  {
+    "objectID": "InteresCompuestoEquipo1.html#función-con-operadores-else-if",
+    "href": "InteresCompuestoEquipo1.html#función-con-operadores-else-if",
+    "title": "Interes Compuesto",
+    "section": "Función con operadores else, if",
+    "text": "Función con operadores else, if\n\ninteres_compuesto1 &lt;- function(a, r, n){\n\n  if (a &lt;= 0) {\n    return(\"Error: el valor actual debe ser positivo\")\n  } else if (r &lt; 0) {\n    return(\"Error: la tasa no puede ser negativa\")\n  } else if (n &lt;= 0) {\n    return(\"Error: el número de periodos debe ser positivo\")\n  } else {\n    VF &lt;- a * (1 + r)^n\n    return(VF)\n  }\n\n}"
+  },
+  {
+    "objectID": "InteresCompuestoEquipo1.html#ejemplos-1",
+    "href": "InteresCompuestoEquipo1.html#ejemplos-1",
+    "title": "Interes Compuesto",
+    "section": "Ejemplos",
+    "text": "Ejemplos\n\ninteres_compuesto1(1000, 0.05, 3)\n\n[1] 1157.625\n\ninteres_compuesto1(2000, 1.06, 4)\n\n[1] 36016.28\n\ninteres_compuesto1(5000, 1.331, 6655)\n\n[1] Inf\n\ninteres_compuesto1(12000, 1.04, 5)\n\n[1] 423967"
+  },
+  {
+    "objectID": "InteresCEquipo1.html",
+    "href": "InteresCEquipo1.html",
+    "title": "Interes Compuesto Equipo1",
+    "section": "",
+    "text": "interes_compuesto &lt;- function(a, r, n){\n  VF &lt;-  a * (1 + r ) ^ n\n  return(VF)\n}"
+  },
+  {
+    "objectID": "InteresCEquipo1.html#función-para-calcular-el-interés-compuesto",
+    "href": "InteresCEquipo1.html#función-para-calcular-el-interés-compuesto",
+    "title": "Interes Compuesto Equipo1",
+    "section": "",
+    "text": "interes_compuesto &lt;- function(a, r, n){\n  VF &lt;-  a * (1 + r ) ^ n\n  return(VF)\n}"
+  },
+  {
+    "objectID": "InteresCEquipo1.html#ejemplos",
+    "href": "InteresCEquipo1.html#ejemplos",
+    "title": "Interes Compuesto Equipo1",
+    "section": "Ejemplos",
+    "text": "Ejemplos\n\ninteres_compuesto(1000, 0.05, 3)\n\n[1] 1157.625\n\ninteres_compuesto(2500, 0.08, 2)\n\n[1] 2916\n\ninteres_compuesto(15000, 0.12, 1)\n\n[1] 16800\n\ninteres_compuesto(980, 0.03, 6)\n\n[1] 1170.171"
+  },
+  {
+    "objectID": "InteresCEquipo1.html#función-con-operadores-else-if",
+    "href": "InteresCEquipo1.html#función-con-operadores-else-if",
+    "title": "Interes Compuesto Equipo1",
+    "section": "Función con operadores else, if",
+    "text": "Función con operadores else, if\n\ninteres_compuesto1 &lt;- function(a, r, n){\n\n  if (a &lt;= 0) {\n    return(\"Error: el valor actual debe ser positivo\")\n  } else if (r &lt; 0) {\n    return(\"Error: la tasa no puede ser negativa\")\n  } else if (n &lt;= 0) {\n    return(\"Error: el número de periodos debe ser positivo\")\n  } else {\n    VF &lt;- a * (1 + r)^n\n    return(VF)\n  }\n\n}"
+  },
+  {
+    "objectID": "InteresCEquipo1.html#ejemplos-1",
+    "href": "InteresCEquipo1.html#ejemplos-1",
+    "title": "Interes Compuesto Equipo1",
+    "section": "Ejemplos",
+    "text": "Ejemplos\n\ninteres_compuesto1(1000, 0.05, 3)\n\n[1] 1157.625\n\ninteres_compuesto1(2000, 1.06, 4)\n\n[1] 36016.28\n\ninteres_compuesto1(5000, 1.331, 6655)\n\n[1] Inf\n\ninteres_compuesto1(12000, 1.04, 5)\n\n[1] 423967"
   }
 ]

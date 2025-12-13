@@ -1,0 +1,52 @@
+---
+title: "Interes Compuesto"
+author: "Diego Alberto Montes Ramírez"
+format: html
+editor: visual
+---
+
+## Función para calcular el interés compuesto
+
+```{r}
+interes_compuesto <- function(a, r, n){
+  VF <-  a * (1 + r ) ^ n
+  return(VF)
+}
+```
+
+## Ejemplos
+
+```{r}
+interes_compuesto(1000, 0.05, 3)
+interes_compuesto(2500, 0.08, 2)
+interes_compuesto(15000, 0.12, 1)
+interes_compuesto(980, 0.03, 6)
+```
+
+## Función con operadores else, if
+
+```{r}
+interes_compuesto1 <- function(a, r, n){
+
+  if (a <= 0) {
+    return("Error: el valor actual debe ser positivo")
+  } else if (r < 0) {
+    return("Error: la tasa no puede ser negativa")
+  } else if (n <= 0) {
+    return("Error: el número de periodos debe ser positivo")
+  } else {
+    VF <- a * (1 + r)^n
+    return(VF)
+  }
+
+}
+```
+
+## Ejemplos
+
+```{r}
+interes_compuesto1(1000, 0.05, 3)
+interes_compuesto1(2000, 1.06, 4)
+interes_compuesto1(5000, 1.331, 6655)
+interes_compuesto1(12000, 1.04, 5)
+```
