@@ -11,7 +11,8 @@ editor: visual
 
 # Generales
 
-Archivo de la presentación en este [link](equipo1.html)
+Archivo de la presentación en este [link](Equipo%5B1%5D.html)
 
-Función de interés simple en este
-[link](InteresSimpleEquipo1.html)
+Archivo de la presentación en este [link](equipo1PB.html)
+
+Función de interés simple en este [link](InteresSimpleEquipo1.html)
