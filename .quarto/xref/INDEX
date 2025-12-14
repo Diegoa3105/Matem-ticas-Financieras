@@ -23,5 +23,25 @@
   },
   "InteresCEquipo1.qmd": {
     "InteresCEquipo1.html": "44dcfd24"
+  },
+  "docs/FuncionesAnualidadesC.qmd": {
+    "FuncionesAnualidadesC.html": "069a4853",
+    "FuncionesAnualidadesC.tex": "2eaf5f37"
+  },
+  "docs/FuncionesAnualidadesEquipo1.qmd": {
+    "FuncionesAnualidadesEquipo1.html": "00194e79",
+    "FuncionesAnualidadesEquipo1.tex": "bef123cd"
+  },
+  "docs/anualidades.qmd": {
+    "anualidades.html": "eb776101"
+  },
+  "docs/Presentacion2/equipo1PB.qmd": {
+    "equipo1PB.html": "904e51ea"
+  },
+  "docs/Presentacion2/index.qmd": {
+    "index.html": "2bb70fd6"
+  },
+  "docs/InteresSimpleEquipo1.qmd": {
+    "InteresSimpleEquipo1.html": "88be4377"
   }
 }

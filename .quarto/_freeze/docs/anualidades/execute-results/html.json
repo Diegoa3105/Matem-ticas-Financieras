@@ -1,0 +1,15 @@
+{
+  "hash": "cddaa9618ada12ace3935855f4fd2720",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Funciones de Anualidades en R\"\nauthor: \"Diego Alberto Montes Ramírez\"\nformat: html\n---\n\n## Introducción\n\nEste documento presenta dos funciones en **R** para el cálculo de anualidades:\n\n- `valorFuturoAnualidades()`\n- `valorActualAnualidades()`\n\nLas funciones identifican automáticamente qué variable debe calcularse cuando **solo un argumento se deja como `NA`**.\n\n## Funciones en R\n\n\n::: {.cell}\n\n```{.r .cell-code}\nvalorFuturoAnualidades <- function(r = NA, VF = NA, T = NA, pago = NA, anticipada = FALSE) {\n\n  tipo <- ifelse(anticipada, (1 + r), 1)\n\n  if (is.na(VF)) {\n    VF <- pago * (((1 + r)^T - 1) / r) * tipo\n    return(VF)\n  }\n\n  if (is.na(pago)) {\n    pago <- VF / ((((1 + r)^T - 1) / r) * tipo)\n    return(pago)\n  }\n\n  if (is.na(r)) {\n    f <- function(r) pago * (((1 + r)^T - 1) / r) * ifelse(anticipada, (1 + r), 1) - VF\n    return(uniroot(f, c(1e-8, 1))$root)\n  }\n\n  if (is.na(T)) {\n    T <- log((VF * r / (pago * tipo)) + 1) / log(1 + r)\n    return(T)\n  }\n}\n\nvalorActualAnualidades <- function(r = NA, VA = NA, T = NA, pago = NA, anticipada = FALSE) {\n\n  tipo <- ifelse(anticipada, (1 + r), 1)\n\n  if (is.na(VA)) {\n    VA <- pago * ((1 - (1 + r)^(-T)) / r) * tipo\n    return(VA)\n  }\n\n  if (is.na(pago)) {\n    pago <- VA / (((1 - (1 + r)^(-T)) / r) * tipo)\n    return(pago)\n  }\n\n  if (is.na(r)) {\n    f <- function(r) pago * ((1 - (1 + r)^(-T)) / r) * ifelse(anticipada, (1 + r), 1) - VA\n    return(uniroot(f, c(1e-8, 1))$root)\n  }\n\n  if (is.na(T)) {\n    T <- -log(1 - (VA * r / (pago * tipo))) / log(1 + r)\n    return(T)\n  }\n}\n```\n:::\n\n\n## Ejemplos de uso\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Valor futuro con pago conocido\nvalorFuturoAnualidades(r = 0.001923, pago = 60.0880133, T = 1820, anticipada = FALSE)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 999895.9\n```\n\n\n:::\n\n```{.r .cell-code}\n# Pago necesario para alcanzar un valor futuro\nvalorFuturoAnualidades(r = 0.001923, VF = 1000000, T = 1820, anticipada = TRUE)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 59.97893\n```\n\n\n:::\n\n```{.r .cell-code}\n# Valor actual con pago conocido\nvalorActualAnualidades(r = 0.00125, pago = 640.1072101, T = 48, anticipada = FALSE)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 29803.48\n```\n\n\n:::\n\n```{.r .cell-code}\n# Pago con valor actual conocido\nvalorActualAnualidades(r = 0.00125, VA = 23000, T = 48, anticipada = TRUE)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 493.368\n```\n\n\n:::\n:::\n\n\n## Conclusión\n\nEstas funciones permiten resolver de manera flexible los problemas clásicos de anualidades vencidas y anticipadas usando R y Quarto.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -11,12 +11,14 @@ editor: visual
 
 # Generales
 
-Archivo de la presentación en este [link](https://diegoa3105.github.io/Matem-ticas-Financieras/Presentacion/equipo%5B1%5D.html)
+Archivo de la presentación en este [link](docs/Presentacion2/equipo%5B1%5D.html)
 
 Archivo de la presentación Deuda y tabla de amortización en este [link](docs/Equipo%5B1%5D.html)
 
-Función de interés simple en este [link](https://diegoa3105.github.io/Matem-ticas-Financieras/InteresSimpleEquipo1.qmd)
+Función de interés simple en este [link](docs/InteresSimpleEquipo1.qmd)
 
 El archivo de la función de interés simple se encuentra aqui [link](https://diegoa3105.github.io/Matem-ticas-Financieras/InteresSimpleEquipo1.html)
 
 Funcion de interés compuesto esta en este [link](docs/InteresCompuestoEquipo1.html)
+
+Funcion de anualidades convencionales en este [link](docs/AnualidadesConvencionalesEquipo1.R)

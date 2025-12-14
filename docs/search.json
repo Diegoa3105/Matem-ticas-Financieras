@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Equipo1",
     "section": "",
-    "text": "Generales\nArchivo de la presentación en este link\nArchivo de la presentación Deuda y tabla de amortización en este link\nFunción de interés simple en este link\nEl archivo de la función de interés simple se encuentra aqui link\nFuncion de interés compuesto esta en este link"
+    "text": "Generales\nArchivo de la presentación en este link\nArchivo de la presentación Deuda y tabla de amortización en este link\nFunción de interés simple en este link\nEl archivo de la función de interés simple se encuentra aqui link\nFuncion de interés compuesto esta en este link\nFuncion de anualidades convencionales en este link"
   },
   {
     "objectID": "Presentacion/index.html",
@@ -390,5 +390,187 @@
     "title": "Interes Compuesto Equipo1",
     "section": "Ejemplos",
     "text": "Ejemplos\n\ninteres_compuesto1(1000, 0.05, 3)\n\n[1] 1157.625\n\ninteres_compuesto1(2000, 1.06, 4)\n\n[1] 36016.28\n\ninteres_compuesto1(5000, 1.331, 6655)\n\n[1] Inf\n\ninteres_compuesto1(12000, 1.04, 5)\n\n[1] 423967"
+  },
+  {
+    "objectID": "docs/FuncionesAnualidadesC.html",
+    "href": "docs/FuncionesAnualidadesC.html",
+    "title": "Funciones anualidades convencionales",
+    "section": "",
+    "text": "Anualidades Vencidas (VF)\nLo primero que haremos será crear las diferentes funciones para las anualidades vencidas con valor futuro:\n\nValor futuro (VF)\n\n\nAnualidadesVencidasVFVF = function(A, r, T){\n   VF = A * ( ( (1 + r)^T - 1 ) / r )\n   return(VF)\n}\n\n\nMonto del pago en la anualidad (A)\n\n\nAnualidadesVencidasVFA = function(VF, r, T){\n  A = VF * ( r / ( (1 + r)^T - 1 ) )\n  return(A)\n}\n\n\nTasa de interes del periodo (r)\n\n\nAnualidadesVencidasVFr = function(VF, A, T, guess = 0.1){\n\n  f &lt;- function(r){\n    A * (((1+r)^T - 1) / r) - VF\n  }\n\n  sol &lt;- uniroot(f, interval = c(1e-8, 1), extendInt = \"yes\")\n\n  return(sol$root)\n}\n\n\nNúmero de periodos de pagos (T)\n\n\nAnualidadesVencidasVFT = function(VF, A, r){\n  T = log(1 + (VF * r / A)) / log(1 + r)\n  return(T)\n}\n\n\n\nAnualidades Venciadas (VA)\nAhora lo que haremos será definir las funciones para anualidades vencidas con valor actual:\n\nValor Actual (VA)\n\n\nAnualidadesVencidasVAVA = function(A, r, T){\n  VA =  A * (1 - (1 + r)^(-T)) / r\n  return(VA)\n}\n\n\nMonto del pago en la anualidad (A)\n\n\nAnualidadesVencidasVAA = function(VA, r, T){\n  A = VA * r / (1 - (1 + r)^(-T))\n  return(A)\n}\n\n\nTasa de interes del periodo (r)\n\n\nAnualidadesVencidasVAr = function(VA, A, T, guess = 0.1){\n\n  f &lt;- function(r){\n    A * (1 - (1+r)^(-T)) / r - VA\n  }\n\n  sol &lt;- uniroot(f, interval = c(1e-8, 1), extendInt = \"yes\")\n\n  return(sol$root)\n}\n\n\nNúmero de periodos de pagos (T)\n\n\nAnualidadesVencidasVAT = function(VA, A, r){\n  T = -log(1 - (VA * r / A)) / log(1 + r)\n  return(T)\n}\n\n\n\nAnualidades Anticipadas (VF)\nLo siguiente que haremos será definir las funciones de Anualidades anticipadas con Valor futuro:\n\nValor futuro (VF)\n\n\nAnualidadesAnticipadasVFVF = function(A, r, T){\n  VF =  A * (((1 + r)^T - 1) / r) * (1 + r)\n  return(VF)\n}\n\n\nMonto del pago en la anualidad (A)\n\n\nAnualidadesAnticipadasVFA = function(VF, r, T){\n  A = VF * r / (((1 + r)^T - 1) * (1 + r))\n  return(A)\n}\n\n\nTasa de interes del periodo (r)\n\n\nAnualidadesAnticipadasVFr = function(VF, A, T, guess = 0.1){\n\n  f &lt;- function(r){\n    A * (((1+r)^T - 1) / r) * (1+r) - VF\n  }\n\n  sol &lt;- uniroot(f, interval = c(1e-8, 1), extendInt = \"yes\")\n\n  return(sol$root)\n}\n\n\nNúmero de periodos de pago (T)\n\n\nAnualidadesAnticipadasVFT = function(VF, A, r){\n  T = log(1 + (VF * r / (A * (1 + r)))) / log(1 + r)\n  return(T)\n}\n\n\n\nAnualidades Anticipadas (VA)\nCasi por terminar, vamos a crear las funciones para cada parte de anualidades anticipadas con valor actual:\n\nValor actual (VA)\n\n\nAnualidadesAnticipadasVAVA =function(A, r, T){\n  VA = A * (1 - (1 + r)^(-T)) / r * (1 + r)\n  return(VA)\n}\n\n\nMonto del pago en la anualidad (A)\n\n\nAnualidadesAnticipadasVAA = function(VA, r, T){\n  A =  VA * r / ((1 - (1 + r)^(-T)) * (1 + r))\n  return (A)\n}\n\n\nTasa de interes del periodo (r)\n\n\nAnualidadesAnticipadasVAr = function(VA, A, T, guess = 0.1){\n\n  f &lt;- function(r){\n    A * (1 - (1+r)^(-T)) / r * (1+r) - VA\n  }\n\n  sol &lt;- uniroot(f, interval = c(1e-8, 1), extendInt = \"yes\")\n\n  return(sol$root)\n}\n\n\nNúmero de periodos de pago (T)\n\n\nAnualidadesAnticipadasVAT = function(VA, A, r){\n  T = -log(1 - (VA * r / (A * (1 + r)))) / log(1 + r)\n  return(T)\n}\n\n\n\nFunciones Generales\nPor último, necesitamos incluir las ultimas dos funciones generales ¨valorActualAnualidades¨ y ¨valorFuturoAnualidades¨ para que esas dos funciones puedan llamar a las otras dependeindo el valor que nos pidan encontrar:\n\nvalorFuturoAnualidades\n\n\nvalorFuturoAnualidades &lt;- function(A = NA, r = NA, T = NA, VF = NA, anticipada = FALSE) {\n\n  if (!is.na(r) && r &lt; 0) stop(\"Error: la tasa de interés (r) no puede ser negativa.\")\n  if (!is.na(T) && T &lt;= 0) stop(\"Error: el número de periodos (T) debe ser mayor que cero.\")\n  if (!is.logical(anticipada)) stop(\"Error: 'anticipada' debe ser TRUE o FALSE.\")\n\n \n  cantidad_NA &lt;- sum(is.na(c(A, r, T, VF)))\n\n  if (cantidad_NA != 1) {\n    stop(\"Error: Debes dejar exactamente uno de los valores como NA (A, r, T o VF).\")\n  }\n\n  \n  if (is.na(VF)) {\n    if (anticipada) {\n      VF &lt;- AnualidadesAnticipadasVFVF(A, r, T)\n    } else {\n      VF &lt;- AnualidadesVencidasVFVF(A, r, T)\n    }\n    return(VF)\n  }\n\n  \n  if (is.na(A)) {\n    if (anticipada) {\n      A &lt;- AnualidadesAnticipadasVFA(VF, r, T)\n    } else {\n      A &lt;- AnualidadesVencidasVFA(VF, r, T)\n    }\n    return(A)\n  }\n\n  \n  if (is.na(r)) {\n    if (anticipada) {\n      r &lt;- AnualidadesAnticipadasVFr(VF, A, T)\n    } else {\n      r &lt;- AnualidadesVencidasVFr(VF, A, T)\n    }\n    return(r)\n  }\n\n  \n  if (is.na(T)) {\n    if (anticipada) {\n      T &lt;- AnualidadesAnticipadasVFT(VF, A, r)\n    } else {\n      T &lt;- AnualidadesVencidasVFT(VF, A, r)\n    }\n    return(T)\n  }\n\n  \n  stop(\"Error inesperado: revisa los valores nuevamente.\")\n}\n\n\nvalorActualAnualidades\n\n\nvalorActualAnualidades &lt;- function(A = NA, r = NA, T = NA, VA = NA, anticipada = FALSE) {\n\n  \n  if (!is.na(r) && r &lt; 0) stop(\"Error: la tasa de interés (r) no puede ser negativa.\")\n  if (!is.na(T) && T &lt;= 0) stop(\"Error: el número de periodos (T) debe ser mayor que cero.\")\n  if (!is.logical(anticipada)) stop(\"Error: 'anticipada' debe ser TRUE o FALSE.\")\n\n  \n  cantidad_NA &lt;- sum(is.na(c(A, r, T, VA)))\n\n  if (cantidad_NA != 1) {\n    stop(\"Error: Debes dejar exactamente un valor como NA (A, r, T o VA).\")\n  }\n\n \n  if (is.na(VA)) {\n    if (anticipada) {\n      VA &lt;- AnualidadesAnticipadasVAVA(A, r, T)\n    } else {\n      VA &lt;- AnualidadesVencidasVAVA(A, r, T)\n    }\n    return(VA)\n  }\n\n  \n  if (is.na(A)) {\n    if (anticipada) {\n      A &lt;- AnualidadesAnticipadasVAA(VA, r, T)\n    } else {\n      A &lt;- AnualidadesVencidasVAA(VA, r, T)\n    }\n    return(A)\n  }\n\n  \n  if (is.na(r)) {\n    if (anticipada) {\n      r &lt;- AnualidadesAnticipadasVAr(VA, A, T)\n    } else {\n      r &lt;- AnualidadesVencidasVAr(VA, A, T)\n    }\n    return(r)\n  }\n\n  \n  if (is.na(T)) {\n    if (anticipada) {\n      T &lt;- AnualidadesAnticipadasVAT(VA, A, r)\n    } else {\n      T &lt;- AnualidadesVencidasVAT(VA, A, r)\n    }\n    return(T)\n  }\n\n \n  stop(\"Error inesperado: revisa los datos ingresados.\")\n}\n\nEjemplos:\n\n\n\n\nvalorFuturoAnualidades(r=0.02,VF=1000000,T=360,anticipada=TRUE)\n\n[1] 15.72955\n\n\n\n\n\n\nvalorFuturoAnualidades(r=0.02,A=1500,T=360,anticipada=TRUE)\n\n[1] 95361926\n\n\n\n\n\n\nvalorFuturoAnualidades(VF=30000, A=400, T=48, anticipada=TRUE)\n\n[1] 0.01721927\n\n\n\n\n\n\nvalorActualAnualidades(anticipada=FALSE, VA=23000, r=0.0125, T=48)\n\n[1] 640.1072"
+  },
+  {
+    "objectID": "docs/FuncionesAnualidadesEquipo1.html",
+    "href": "docs/FuncionesAnualidadesEquipo1.html",
+    "title": "Funciones anualidades convencionales",
+    "section": "",
+    "text": "Anualidades Vencidas (VF)\nLo primero que haremos será crear las diferentes funciones para las anualidades vencidas con valor futuro:\n\nValor futuro (VF)\n\n\nAnualidadesVencidasVFVF = function(A, r, T){\n   VF = A * ( ( (1 + r)^T - 1 ) / r )\n   return(VF)\n}\n\n\nMonto del pago en la anualidad (A)\n\n\nAnualidadesVencidasVFA = function(VF, r, T){\n  A = VF * ( r / ( (1 + r)^T - 1 ) )\n  return(A)\n}\n\n\nTasa de interes del periodo (r)\n\n\nAnualidadesVencidasVFr = function(VF, A, T, guess = 0.1){\n\n  f &lt;- function(r){\n    A * (((1+r)^T - 1) / r) - VF\n  }\n\n  sol &lt;- uniroot(f, interval = c(1e-8, 1), extendInt = \"yes\")\n\n  return(sol$root)\n}\n\n\nNúmero de periodos de pagos (T)\n\n\nAnualidadesVencidasVFT = function(VF, A, r){\n  T = log(1 + (VF * r / A)) / log(1 + r)\n  return(T)\n}\n\n\n\nAnualidades Venciadas (VA)\nAhora lo que haremos será definir las funciones para anualidades vencidas con valor actual:\n\nValor Actual (VA)\n\n\nAnualidadesVencidasVAVA = function(A, r, T){\n  VA =  A * (1 - (1 + r)^(-T)) / r\n  return(VA)\n}\n\n\nMonto del pago en la anualidad (A)\n\n\nAnualidadesVencidasVAA = function(VA, r, T){\n  A = VA * r / (1 - (1 + r)^(-T))\n  return(A)\n}\n\n\nTasa de interes del periodo (r)\n\n\nAnualidadesVencidasVAr = function(VA, A, T, guess = 0.1){\n\n  f &lt;- function(r){\n    A * (1 - (1+r)^(-T)) / r - VA\n  }\n\n  sol &lt;- uniroot(f, interval = c(1e-8, 1), extendInt = \"yes\")\n\n  return(sol$root)\n}\n\n\nNúmero de periodos de pagos (T)\n\n\nAnualidadesVencidasVAT = function(VA, A, r){\n  T = -log(1 - (VA * r / A)) / log(1 + r)\n  return(T)\n}\n\n\n\nAnualidades Anticipadas (VF)\nLo siguiente que haremos será definir las funciones de Anualidades anticipadas con Valor futuro:\n\nValor futuro (VF)\n\n\nAnualidadesAnticipadasVFVF = function(A, r, T){\n  VF =  A * (((1 + r)^T - 1) / r) * (1 + r)\n  return(VF)\n}\n\n\nMonto del pago en la anualidad (A)\n\n\nAnualidadesAnticipadasVFA = function(VF, r, T){\n  A = VF * r / (((1 + r)^T - 1) * (1 + r))\n  return(A)\n}\n\n\nTasa de interes del periodo (r)\n\n\nAnualidadesAnticipadasVFr = function(VF, A, T, guess = 0.1){\n\n  f &lt;- function(r){\n    A * (((1+r)^T - 1) / r) * (1+r) - VF\n  }\n\n  sol &lt;- uniroot(f, interval = c(1e-8, 1), extendInt = \"yes\")\n\n  return(sol$root)\n}\n\n\nNúmero de periodos de pago (T)\n\n\nAnualidadesAnticipadasVFT = function(VF, A, r){\n  T = log(1 + (VF * r / (A * (1 + r)))) / log(1 + r)\n  return(T)\n}\n\n\n\nAnualidades Anticipadas (VA)\nCasi por terminar, vamos a crear las funciones para cada parte de anualidades anticipadas con valor actual:\n\nValor actual (VA)\n\n\nAnualidadesAnticipadasVAVA =function(A, r, T){\n  VA = A * (1 - (1 + r)^(-T)) / r * (1 + r)\n  return(VA)\n}\n\n\nMonto del pago en la anualidad (A)\n\n\nAnualidadesAnticipadasVAA = function(VA, r, T){\n  A =  VA * r / ((1 - (1 + r)^(-T)) * (1 + r))\n  return (A)\n}\n\n\nTasa de interes del periodo (r)\n\n\nAnualidadesAnticipadasVAr = function(VA, A, T, guess = 0.1){\n\n  f &lt;- function(r){\n    A * (1 - (1+r)^(-T)) / r * (1+r) - VA\n  }\n\n  sol &lt;- uniroot(f, interval = c(1e-8, 1), extendInt = \"yes\")\n\n  return(sol$root)\n}\n\n\nNúmero de periodos de pago (T)\n\n\nAnualidadesAnticipadasVAT = function(VA, A, r){\n  T = -log(1 - (VA * r / (A * (1 + r)))) / log(1 + r)\n  return(T)\n}\n\n\n\nFunciones Generales\nPor último, necesitamos incluir las ultimas dos funciones generales ¨valorActualAnualidades¨ y ¨valorFuturoAnualidades¨ para que esas dos funciones puedan llamar a las otras dependeindo el valor que nos pidan encontrar:\n\nvalorFuturoAnualidades\n\n\nvalorFuturoAnualidades &lt;- function(A = NA, r = NA, T = NA, VF = NA, anticipada = FALSE) {\n\n  if (!is.na(r) && r &lt; 0) stop(\"Error: la tasa de interés (r) no puede ser negativa.\")\n  if (!is.na(T) && T &lt;= 0) stop(\"Error: el número de periodos (T) debe ser mayor que cero.\")\n  if (!is.logical(anticipada)) stop(\"Error: 'anticipada' debe ser TRUE o FALSE.\")\n\n \n  cantidad_NA &lt;- sum(is.na(c(A, r, T, VF)))\n\n  if (cantidad_NA != 1) {\n    stop(\"Error: Debes dejar exactamente uno de los valores como NA (A, r, T o VF).\")\n  }\n\n  \n  if (is.na(VF)) {\n    if (anticipada) {\n      VF &lt;- AnualidadesAnticipadasVFVF(A, r, T)\n    } else {\n      VF &lt;- AnualidadesVencidasVFVF(A, r, T)\n    }\n    return(VF)\n  }\n\n  \n  if (is.na(A)) {\n    if (anticipada) {\n      A &lt;- AnualidadesAnticipadasVFA(VF, r, T)\n    } else {\n      A &lt;- AnualidadesVencidasVFA(VF, r, T)\n    }\n    return(A)\n  }\n\n  \n  if (is.na(r)) {\n    if (anticipada) {\n      r &lt;- AnualidadesAnticipadasVFr(VF, A, T)\n    } else {\n      r &lt;- AnualidadesVencidasVFr(VF, A, T)\n    }\n    return(r)\n  }\n\n  \n  if (is.na(T)) {\n    if (anticipada) {\n      T &lt;- AnualidadesAnticipadasVFT(VF, A, r)\n    } else {\n      T &lt;- AnualidadesVencidasVFT(VF, A, r)\n    }\n    return(T)\n  }\n\n  \n  stop(\"Error inesperado: revisa los valores nuevamente.\")\n}\n\n\nvalorActualAnualidades\n\n\nvalorActualAnualidades &lt;- function(A = NA, r = NA, T = NA, VA = NA, anticipada = FALSE) {\n\n  \n  if (!is.na(r) && r &lt; 0) stop(\"Error: la tasa de interés (r) no puede ser negativa.\")\n  if (!is.na(T) && T &lt;= 0) stop(\"Error: el número de periodos (T) debe ser mayor que cero.\")\n  if (!is.logical(anticipada)) stop(\"Error: 'anticipada' debe ser TRUE o FALSE.\")\n\n  \n  cantidad_NA &lt;- sum(is.na(c(A, r, T, VA)))\n\n  if (cantidad_NA != 1) {\n    stop(\"Error: Debes dejar exactamente un valor como NA (A, r, T o VA).\")\n  }\n\n \n  if (is.na(VA)) {\n    if (anticipada) {\n      VA &lt;- AnualidadesAnticipadasVAVA(A, r, T)\n    } else {\n      VA &lt;- AnualidadesVencidasVAVA(A, r, T)\n    }\n    return(VA)\n  }\n\n  \n  if (is.na(A)) {\n    if (anticipada) {\n      A &lt;- AnualidadesAnticipadasVAA(VA, r, T)\n    } else {\n      A &lt;- AnualidadesVencidasVAA(VA, r, T)\n    }\n    return(A)\n  }\n\n  \n  if (is.na(r)) {\n    if (anticipada) {\n      r &lt;- AnualidadesAnticipadasVAr(VA, A, T)\n    } else {\n      r &lt;- AnualidadesVencidasVAr(VA, A, T)\n    }\n    return(r)\n  }\n\n  \n  if (is.na(T)) {\n    if (anticipada) {\n      T &lt;- AnualidadesAnticipadasVAT(VA, A, r)\n    } else {\n      T &lt;- AnualidadesVencidasVAT(VA, A, r)\n    }\n    return(T)\n  }\n\n \n  stop(\"Error inesperado: revisa los datos ingresados.\")\n}\n\nEjemplos:\n\n\n\n\nvalorFuturoAnualidades(r=0.02,VF=1000000,T=360,anticipada=TRUE)\n\n[1] 15.72955\n\n\n\n\n\n\nvalorFuturoAnualidades(r=0.02,A=1500,T=360,anticipada=TRUE)\n\n[1] 95361926\n\n\n\n\n\n\nvalorFuturoAnualidades(VF=30000, A=400, T=48, anticipada=TRUE)\n\n[1] 0.01721927\n\n\n\n\n\n\nvalorActualAnualidades(anticipada=FALSE, VA=23000, r=0.0125, T=48)\n\n[1] 640.1072"
+  },
+  {
+    "objectID": "docs/anualidades.html",
+    "href": "docs/anualidades.html",
+    "title": "Funciones de Anualidades en R",
+    "section": "",
+    "text": "Este documento presenta dos funciones en R para el cálculo de anualidades:\n\nvalorFuturoAnualidades()\nvalorActualAnualidades()\n\nLas funciones identifican automáticamente qué variable debe calcularse cuando solo un argumento se deja como NA."
+  },
+  {
+    "objectID": "docs/anualidades.html#introducción",
+    "href": "docs/anualidades.html#introducción",
+    "title": "Funciones de Anualidades en R",
+    "section": "",
+    "text": "Este documento presenta dos funciones en R para el cálculo de anualidades:\n\nvalorFuturoAnualidades()\nvalorActualAnualidades()\n\nLas funciones identifican automáticamente qué variable debe calcularse cuando solo un argumento se deja como NA."
+  },
+  {
+    "objectID": "docs/anualidades.html#funciones-en-r",
+    "href": "docs/anualidades.html#funciones-en-r",
+    "title": "Funciones de Anualidades en R",
+    "section": "Funciones en R",
+    "text": "Funciones en R\n\nvalorFuturoAnualidades &lt;- function(r = NA, VF = NA, T = NA, pago = NA, anticipada = FALSE) {\n\n  tipo &lt;- ifelse(anticipada, (1 + r), 1)\n\n  if (is.na(VF)) {\n    VF &lt;- pago * (((1 + r)^T - 1) / r) * tipo\n    return(VF)\n  }\n\n  if (is.na(pago)) {\n    pago &lt;- VF / ((((1 + r)^T - 1) / r) * tipo)\n    return(pago)\n  }\n\n  if (is.na(r)) {\n    f &lt;- function(r) pago * (((1 + r)^T - 1) / r) * ifelse(anticipada, (1 + r), 1) - VF\n    return(uniroot(f, c(1e-8, 1))$root)\n  }\n\n  if (is.na(T)) {\n    T &lt;- log((VF * r / (pago * tipo)) + 1) / log(1 + r)\n    return(T)\n  }\n}\n\nvalorActualAnualidades &lt;- function(r = NA, VA = NA, T = NA, pago = NA, anticipada = FALSE) {\n\n  tipo &lt;- ifelse(anticipada, (1 + r), 1)\n\n  if (is.na(VA)) {\n    VA &lt;- pago * ((1 - (1 + r)^(-T)) / r) * tipo\n    return(VA)\n  }\n\n  if (is.na(pago)) {\n    pago &lt;- VA / (((1 - (1 + r)^(-T)) / r) * tipo)\n    return(pago)\n  }\n\n  if (is.na(r)) {\n    f &lt;- function(r) pago * ((1 - (1 + r)^(-T)) / r) * ifelse(anticipada, (1 + r), 1) - VA\n    return(uniroot(f, c(1e-8, 1))$root)\n  }\n\n  if (is.na(T)) {\n    T &lt;- -log(1 - (VA * r / (pago * tipo))) / log(1 + r)\n    return(T)\n  }\n}"
+  },
+  {
+    "objectID": "docs/anualidades.html#ejemplos-de-uso",
+    "href": "docs/anualidades.html#ejemplos-de-uso",
+    "title": "Funciones de Anualidades en R",
+    "section": "Ejemplos de uso",
+    "text": "Ejemplos de uso\n\n# Valor futuro con pago conocido\nvalorFuturoAnualidades(r = 0.001923, pago = 60.0880133, T = 1820, anticipada = FALSE)\n\n[1] 999895.9\n\n# Pago necesario para alcanzar un valor futuro\nvalorFuturoAnualidades(r = 0.001923, VF = 1000000, T = 1820, anticipada = TRUE)\n\n[1] 59.97893\n\n# Valor actual con pago conocido\nvalorActualAnualidades(r = 0.00125, pago = 640.1072101, T = 48, anticipada = FALSE)\n\n[1] 29803.48\n\n# Pago con valor actual conocido\nvalorActualAnualidades(r = 0.00125, VA = 23000, T = 48, anticipada = TRUE)\n\n[1] 493.368"
+  },
+  {
+    "objectID": "docs/anualidades.html#conclusión",
+    "href": "docs/anualidades.html#conclusión",
+    "title": "Funciones de Anualidades en R",
+    "section": "Conclusión",
+    "text": "Conclusión\nEstas funciones permiten resolver de manera flexible los problemas clásicos de anualidades vencidas y anticipadas usando R y Quarto."
+  },
+  {
+    "objectID": "docs/Presentacion2/index.html",
+    "href": "docs/Presentacion2/index.html",
+    "title": "index.qmd",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "docs/Presentacion2/index.html#quarto",
+    "href": "docs/Presentacion2/index.html#quarto",
+    "title": "index.qmd",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "docs/Presentacion2/index.html#running-code",
+    "href": "docs/Presentacion2/index.html#running-code",
+    "title": "index.qmd",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#orígenes-del-pagaré-1",
+    "href": "docs/Presentacion2/equipo1PB.html#orígenes-del-pagaré-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Orígenes del pagaré",
+    "text": "Orígenes del pagaré\n\n\nEl pagaré nació en la Edad Media en las ciudades del norte de Italia, mucho antes que naciera la letra de cambio. Este título de crédito se inventó para evitar tener que transportar efectivo en desplazamientos en los que estaba asegurada la aparición de bandoleros. -De esta manera, se entregaba el dinero en efectivo a un banquero y éste firmaba el pagaré con la promesa de retornarlo a quien se lo había entregado o a quien denominase en otro lugar."
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#definición-de-pagaré-según-la-ley-general-de-títulos-y-operaciones-de-crédito-en-méxico-lgtoc",
+    "href": "docs/Presentacion2/equipo1PB.html#definición-de-pagaré-según-la-ley-general-de-títulos-y-operaciones-de-crédito-en-méxico-lgtoc",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Definición de pagaré según la Ley General de Títulos y Operaciones de Crédito en México (LGTOC)",
+    "text": "Definición de pagaré según la Ley General de Títulos y Operaciones de Crédito en México (LGTOC)\n\n\nEl pagaré es un documento que contiene una promesa incondicional de pago de una suma determinada de dinero que una persona llamada suscriptor hace a otra persona llamada tenedor o beneficiario.\nPor lo tanto y toda vez que el pagaré es un título de crédito, el tenedor o beneficiario del pagaré tiene el derecho de recibir el pago de la suma determinada de dinero por parte del obligado al pago, es decir del suscriptor del documento."
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#elementos-que-lo-conforman-1",
+    "href": "docs/Presentacion2/equipo1PB.html#elementos-que-lo-conforman-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Elementos que lo conforman",
+    "text": "Elementos que lo conforman\n\n\nValor nominal (lo que se debe pagar) \nFecha de vencimiento \nTasa de interés \nPlazo (tiempo hasta el pago) \nAcreedor (quien recibe el pago) y deudor (quien paga)\n\n\nEjemplo: Juan firma un pagaré por $10,000 a 90 días con tasa del 12% anual"
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#características-1",
+    "href": "docs/Presentacion2/equipo1PB.html#características-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Características",
+    "text": "Características\n\n\nEl pagaré es un documento autónomo, es decir, existe independientemente del acto o negocio que le dio origen\nEl pagaré es un título ejecutivo\nTiene fecha de vencimiento\nGenera intereses\nPuede ser negociable\nNo se puede retirar antes del vencimiento"
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#cómo-funciona-1",
+    "href": "docs/Presentacion2/equipo1PB.html#cómo-funciona-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "¿Cómo funciona?",
+    "text": "¿Cómo funciona?\n\n\nUna persona promete por escrito pagar una cantidad de dinero a otra. \nSe fija una fecha de vencimiento para hacer el pago. \nAl llegar esa fecha, el deudor paga el monto indicado (más intereses si aplica). \nEl pagaré sirve como prueba legal en caso de que no se pague."
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#qué-es-un-pagaré-bancario-1",
+    "href": "docs/Presentacion2/equipo1PB.html#qué-es-un-pagaré-bancario-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "¿Qué es un pagaré bancario?",
+    "text": "¿Qué es un pagaré bancario?\n\n\nUn pagaré bancario es un instrumento de inversión emitido por un banco o institución financiera, en el que el emisor se compromete a devolver a un cliente el capital invertido más los intereses generados en un plazo fijo preestablecido. \nEs un título de crédito seguro, con rendimientos garantizados y sin riesgo de pérdida del capital, que sirve para invertir y hacer crecer el dinero."
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#características-de-un-pagaré-bancario-1",
+    "href": "docs/Presentacion2/equipo1PB.html#características-de-un-pagaré-bancario-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Características de un pagaré bancario",
+    "text": "Características de un pagaré bancario\n\n\n\nPlazos definidos: Puedes elegir el plazo que mejor se adapte a tus necesidades de liquidez, que puede ser corto o más largo (hasta un año o más). \nSeguridad y regulación: Están respaldados por autoridades financieras y, en algunos casos, protegidos por un fondo de seguro para depósitos hasta por un cierto monto, lo que los hace seguros. \nBajo riesgo: Se considera un producto financiero de bajo riesgo, ideal para quienes buscan proteger su dinero y obtener rendimientos sin la volatilidad del mercado bursátil. \nSimplicidad y transparencia: Son productos financieros sencillos de entender, con información pública y comprensible sobre sus plazos, valores y rendimientos."
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#diferencias-entre-pagaré-y-pagaré-bancario-1",
+    "href": "docs/Presentacion2/equipo1PB.html#diferencias-entre-pagaré-y-pagaré-bancario-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Diferencias entre pagaré y pagaré bancario",
+    "text": "Diferencias entre pagaré y pagaré bancario\n\n\nPagaré:  - Emitido por cualquier persona, empresa o institución  - No tiene respaldo adicional  - Se establece de acuerdo a las partes involucradas.\n\nPagaré bancario:  -Lo emite una institucion financiera  - Tiene respaldo de una institución  - Es un instrumento de inversion para el cliente, se le regresa el dinero + interés."
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#interés-simple",
+    "href": "docs/Presentacion2/equipo1PB.html#interés-simple",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Interés simple",
+    "text": "Interés simple"
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#pagaré-con-interés-compuesto",
+    "href": "docs/Presentacion2/equipo1PB.html#pagaré-con-interés-compuesto",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Pagaré con Interés compuesto",
+    "text": "Pagaré con Interés compuesto"
+  },
+  {
+    "objectID": "docs/Presentacion2/equipo1PB.html#conclusión-1",
+    "href": "docs/Presentacion2/equipo1PB.html#conclusión-1",
+    "title": "- Pagaré Bancario - Equipo 1",
+    "section": "Conclusión",
+    "text": "Conclusión\n\n\nEl pagaré bancario es más que un simple documento de deuda: es una herramienta financiera que encapsula el valor del dinero en el tiempo. \nEvaluar un pagaré no solo implica calcular cuánto se va a pagar, sino comprender cómo se comporta el capital bajo condiciones temporales y financieras específicas.\nEs aplicar matemáticas con propósito: transformar fórmulas en decisiones reales.Detrás de cada pagaré hay una historia de valor, riesgo y oportunidad que merece ser modelada con precisión."
+  },
+  {
+    "objectID": "docs/InteresSimpleEquipo1.html",
+    "href": "docs/InteresSimpleEquipo1.html",
+    "title": "Interés Simple",
+    "section": "",
+    "text": "interes_simple &lt;- function(a, r, n){\n  VF &lt;- a * (1 + r * n)\n  return(VF)\n}"
+  },
+  {
+    "objectID": "docs/InteresSimpleEquipo1.html#función-para-interés-simple",
+    "href": "docs/InteresSimpleEquipo1.html#función-para-interés-simple",
+    "title": "Interés Simple",
+    "section": "",
+    "text": "interes_simple &lt;- function(a, r, n){\n  VF &lt;- a * (1 + r * n)\n  return(VF)\n}"
+  },
+  {
+    "objectID": "docs/InteresSimpleEquipo1.html#ejemplos",
+    "href": "docs/InteresSimpleEquipo1.html#ejemplos",
+    "title": "Interés Simple",
+    "section": "Ejemplos",
+    "text": "Ejemplos\n\ninteres_simple(1000, 0.05, 3)\n\n[1] 1150\n\ninteres_simple(2500, 0.08, 2)\n\n[1] 2900\n\ninteres_simple(15000, 0.12, 1)\n\n[1] 16800\n\ninteres_simple(980, 0.03, 6)\n\n[1] 1156.4"
+  },
+  {
+    "objectID": "docs/InteresSimpleEquipo1.html#ejemplo-con-operadores-else-if",
+    "href": "docs/InteresSimpleEquipo1.html#ejemplo-con-operadores-else-if",
+    "title": "Interés Simple",
+    "section": "Ejemplo con operadores else, if",
+    "text": "Ejemplo con operadores else, if\n\ninteres_simple_1 &lt;- function(a, r, n){\n  \n  # Validaciones\n  if(a &lt;= 0 | r &lt; 0 | n &lt;= 0){\n    return(\"Error: Verifica que a&gt;0, r&gt;=0 y n&gt;0\")\n  }\n  \n  # Cálculo con for\n  VF &lt;- a\n  for(i in 1:n){\n    VF &lt;- a * (1 + r * i)\n  }\n  \n  return(VF)\n}"
+  },
+  {
+    "objectID": "docs/InteresSimpleEquipo1.html#ejemplos-1",
+    "href": "docs/InteresSimpleEquipo1.html#ejemplos-1",
+    "title": "Interés Simple",
+    "section": "Ejemplos",
+    "text": "Ejemplos\n\ninteres_simple_1(980, 0.03, 6)\n\n[1] 1156.4\n\n\n\ninteres_simple_1(2500, 0.08, 2)\n\n[1] 2900\n\n\n\ninteres_simple_1(15000, 0.12, 1)\n\n[1] 16800\n\n\n\ninteres_simple_1(980, 0.03, 6)\n\n[1] 1156.4"
   }
 ]

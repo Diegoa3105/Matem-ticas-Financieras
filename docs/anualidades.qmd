@@ -1,0 +1,88 @@
+---
+title: "Funciones de Anualidades en R"
+author: "Diego Alberto Montes Ramírez"
+format: html
+---
+
+## Introducción
+
+Este documento presenta dos funciones en **R** para el cálculo de anualidades:
+
+- `valorFuturoAnualidades()`
+- `valorActualAnualidades()`
+
+Las funciones identifican automáticamente qué variable debe calcularse cuando **solo un argumento se deja como `NA`**.
+
+## Funciones en R
+
+```{r}
+valorFuturoAnualidades <- function(r = NA, VF = NA, T = NA, pago = NA, anticipada = FALSE) {
+
+  tipo <- ifelse(anticipada, (1 + r), 1)
+
+  if (is.na(VF)) {
+    VF <- pago * (((1 + r)^T - 1) / r) * tipo
+    return(VF)
+  }
+
+  if (is.na(pago)) {
+    pago <- VF / ((((1 + r)^T - 1) / r) * tipo)
+    return(pago)
+  }
+
+  if (is.na(r)) {
+    f <- function(r) pago * (((1 + r)^T - 1) / r) * ifelse(anticipada, (1 + r), 1) - VF
+    return(uniroot(f, c(1e-8, 1))$root)
+  }
+
+  if (is.na(T)) {
+    T <- log((VF * r / (pago * tipo)) + 1) / log(1 + r)
+    return(T)
+  }
+}
+
+valorActualAnualidades <- function(r = NA, VA = NA, T = NA, pago = NA, anticipada = FALSE) {
+
+  tipo <- ifelse(anticipada, (1 + r), 1)
+
+  if (is.na(VA)) {
+    VA <- pago * ((1 - (1 + r)^(-T)) / r) * tipo
+    return(VA)
+  }
+
+  if (is.na(pago)) {
+    pago <- VA / (((1 - (1 + r)^(-T)) / r) * tipo)
+    return(pago)
+  }
+
+  if (is.na(r)) {
+    f <- function(r) pago * ((1 - (1 + r)^(-T)) / r) * ifelse(anticipada, (1 + r), 1) - VA
+    return(uniroot(f, c(1e-8, 1))$root)
+  }
+
+  if (is.na(T)) {
+    T <- -log(1 - (VA * r / (pago * tipo))) / log(1 + r)
+    return(T)
+  }
+}
+```
+
+## Ejemplos de uso
+
+```{r}
+# Valor futuro con pago conocido
+valorFuturoAnualidades(r = 0.001923, pago = 60.0880133, T = 1820, anticipada = FALSE)
+
+# Pago necesario para alcanzar un valor futuro
+valorFuturoAnualidades(r = 0.001923, VF = 1000000, T = 1820, anticipada = TRUE)
+
+# Valor actual con pago conocido
+valorActualAnualidades(r = 0.00125, pago = 640.1072101, T = 48, anticipada = FALSE)
+
+# Pago con valor actual conocido
+valorActualAnualidades(r = 0.00125, VA = 23000, T = 48, anticipada = TRUE)
+```
+
+## Conclusión
+
+Estas funciones permiten resolver de manera flexible los problemas clásicos de anualidades vencidas y anticipadas usando R y Quarto.
